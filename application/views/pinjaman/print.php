@@ -82,7 +82,7 @@ $total_pinjaman = $detail['perbulan']*$lama_angsuran;
         </td>
     </tr>
 </table>
-<br/><br/>
+<br/><br/><br/><br/>
 <table width="100%" border="1" cellspacing="0" cellpadding="4">
 	<thead>
     <tr>

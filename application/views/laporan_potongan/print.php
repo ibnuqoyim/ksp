@@ -2,7 +2,7 @@
 <br/>
 <table width="100%" border="0" cellspacing="0" cellpadding="4">
     <tr>
-        <td align="center" colspan="14"><strong><font size="+2">REKAP</font></strong></td>
+        <td align="center" colspan="14"><strong><font size="+2">REKAP LAPORAN SIMPAN PINJAM</font></strong></td>
     </tr>
     <tr>
         <td align="center" colspan="14"><strong><font size="+2"><?=strtoupper($period)?></font></strong></td>

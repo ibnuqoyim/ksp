@@ -72,3 +72,6 @@ ERROR - 2018-09-13 16:53:45 --> Severity: Notice  --> Undefined variable: total_
 ERROR - 2018-09-13 16:53:45 --> Severity: Notice  --> Undefined index: angsuran_ke C:\xampp\htdocs\ksp\application\views\laporan_potongan\load_data.php 176
 ERROR - 2018-09-13 16:53:45 --> Severity: Notice  --> Undefined variable: total_potong_gaji C:\xampp\htdocs\ksp\application\views\laporan_potongan\load_data.php 189
 ERROR - 2018-09-13 16:53:45 --> Severity: Notice  --> Undefined variable: gt_potongan_gaji C:\xampp\htdocs\ksp\application\views\laporan_potongan\load_data.php 212
+ERROR - 2018-09-13 17:05:13 --> Severity: Notice  --> Undefined variable: totpij C:\xampp\htdocs\ksp\application\views\laporan_potongan\print.php 191
+ERROR - 2018-09-13 17:05:13 --> Severity: Notice  --> Undefined variable: totpij C:\xampp\htdocs\ksp\application\views\laporan_potongan\print.php 192
+ERROR - 2018-09-13 17:05:13 --> Severity: Notice  --> Undefined variable: gt_potongan_gaji C:\xampp\htdocs\ksp\application\views\laporan_potongan\print.php 194

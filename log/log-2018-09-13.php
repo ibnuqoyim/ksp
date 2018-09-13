@@ -1,0 +1,36 @@
+<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed'); ?>
+
+ERROR - 2018-09-13 07:37:51 --> Severity: Notice  --> Undefined variable: total_potong_gaji C:\xampp\htdocs\koperasi\application\views\laporan_potongan\load_data.php 251
+ERROR - 2018-09-13 07:37:51 --> Severity: Notice  --> Undefined variable: total_potong_gaji C:\xampp\htdocs\koperasi\application\views\laporan_potongan\load_data.php 251
+ERROR - 2018-09-13 07:37:51 --> Severity: Notice  --> Undefined variable: total_potong_gaji C:\xampp\htdocs\koperasi\application\views\laporan_potongan\load_data.php 251
+ERROR - 2018-09-13 07:37:51 --> Severity: Notice  --> Undefined variable: total_potong_gaji C:\xampp\htdocs\koperasi\application\views\laporan_potongan\load_data.php 251
+ERROR - 2018-09-13 07:37:51 --> Severity: Notice  --> Undefined variable: gt_potongan_gaji C:\xampp\htdocs\koperasi\application\views\laporan_potongan\load_data.php 274
+ERROR - 2018-09-13 14:12:10 --> Severity: Notice  --> Undefined variable: total_potong_gaji C:\xampp\htdocs\koperasi\application\views\laporan_potongan\load_data.php 251
+ERROR - 2018-09-13 14:12:10 --> Severity: Notice  --> Undefined variable: total_potong_gaji C:\xampp\htdocs\koperasi\application\views\laporan_potongan\load_data.php 251
+ERROR - 2018-09-13 14:12:11 --> Severity: Notice  --> Undefined variable: total_potong_gaji C:\xampp\htdocs\koperasi\application\views\laporan_potongan\load_data.php 251
+ERROR - 2018-09-13 14:12:11 --> Severity: Notice  --> Undefined variable: gt_potongan_gaji C:\xampp\htdocs\koperasi\application\views\laporan_potongan\load_data.php 274
+ERROR - 2018-09-13 14:12:21 --> Severity: Notice  --> Undefined variable: total_potong_gaji C:\xampp\htdocs\koperasi\application\views\laporan_potongan\load_data.php 251
+ERROR - 2018-09-13 14:12:21 --> Severity: Notice  --> Undefined variable: totpij C:\xampp\htdocs\koperasi\application\views\laporan_potongan\load_data.php 271
+ERROR - 2018-09-13 14:12:21 --> Severity: Notice  --> Undefined variable: totpij C:\xampp\htdocs\koperasi\application\views\laporan_potongan\load_data.php 272
+ERROR - 2018-09-13 14:12:21 --> Severity: Notice  --> Undefined variable: gt_potongan_gaji C:\xampp\htdocs\koperasi\application\views\laporan_potongan\load_data.php 274
+ERROR - 2018-09-13 14:18:48 --> Severity: Notice  --> Undefined variable: total_potong_gaji C:\xampp\htdocs\koperasi\application\views\laporan_potongan\load_data.php 175
+ERROR - 2018-09-13 14:18:48 --> Severity: Notice  --> Undefined variable: total_potong_gaji C:\xampp\htdocs\koperasi\application\views\laporan_potongan\load_data.php 175
+ERROR - 2018-09-13 14:18:48 --> Severity: Notice  --> Undefined variable: total_potong_gaji C:\xampp\htdocs\koperasi\application\views\laporan_potongan\load_data.php 175
+ERROR - 2018-09-13 14:18:48 --> Severity: Notice  --> Undefined variable: gt_potongan_gaji C:\xampp\htdocs\koperasi\application\views\laporan_potongan\load_data.php 198
+ERROR - 2018-09-13 14:19:00 --> Severity: Notice  --> Undefined variable: total_potong_gaji C:\xampp\htdocs\koperasi\application\views\laporan_potongan\load_data.php 175
+ERROR - 2018-09-13 14:19:00 --> Severity: Notice  --> Undefined variable: gt_potongan_gaji C:\xampp\htdocs\koperasi\application\views\laporan_potongan\load_data.php 198
+ERROR - 2018-09-13 14:20:20 --> Severity: Notice  --> Undefined variable: total_potong_gaji C:\xampp\htdocs\koperasi\application\views\laporan_potongan\load_data.php 175
+ERROR - 2018-09-13 14:20:20 --> Severity: Notice  --> Undefined variable: total_potong_gaji C:\xampp\htdocs\koperasi\application\views\laporan_potongan\load_data.php 175
+ERROR - 2018-09-13 14:20:20 --> Severity: Notice  --> Undefined variable: gt_potongan_gaji C:\xampp\htdocs\koperasi\application\views\laporan_potongan\load_data.php 198
+ERROR - 2018-09-13 14:23:50 --> Severity: Notice  --> Undefined variable: total_potong_gaji C:\xampp\htdocs\koperasi\application\views\laporan_potongan\load_data.php 175
+ERROR - 2018-09-13 14:23:50 --> Severity: Notice  --> Undefined variable: total_potong_gaji C:\xampp\htdocs\koperasi\application\views\laporan_potongan\load_data.php 175
+ERROR - 2018-09-13 14:23:50 --> Severity: Notice  --> Undefined variable: total_potong_gaji C:\xampp\htdocs\koperasi\application\views\laporan_potongan\load_data.php 175
+ERROR - 2018-09-13 14:23:50 --> Severity: Notice  --> Undefined variable: total_potong_gaji C:\xampp\htdocs\koperasi\application\views\laporan_potongan\load_data.php 175
+ERROR - 2018-09-13 14:23:50 --> Severity: Notice  --> Undefined variable: total_potong_gaji C:\xampp\htdocs\koperasi\application\views\laporan_potongan\load_data.php 175
+ERROR - 2018-09-13 14:23:50 --> Severity: Notice  --> Undefined variable: gt_potongan_gaji C:\xampp\htdocs\koperasi\application\views\laporan_potongan\load_data.php 198
+ERROR - 2018-09-13 14:25:31 --> Severity: Notice  --> Undefined variable: total_potong_gaji C:\xampp\htdocs\koperasi\application\views\laporan_potongan\load_data.php 175
+ERROR - 2018-09-13 14:25:31 --> Severity: Notice  --> Undefined variable: total_potong_gaji C:\xampp\htdocs\koperasi\application\views\laporan_potongan\load_data.php 175
+ERROR - 2018-09-13 14:25:31 --> Severity: Notice  --> Undefined variable: gt_potongan_gaji C:\xampp\htdocs\koperasi\application\views\laporan_potongan\load_data.php 198
+ERROR - 2018-09-13 14:47:32 --> Severity: Notice  --> Undefined variable: total_potong_gaji C:\xampp\htdocs\koperasi\application\views\laporan_potongan\print.php 171
+ERROR - 2018-09-13 14:47:32 --> Severity: Notice  --> Undefined variable: total_potong_gaji C:\xampp\htdocs\koperasi\application\views\laporan_potongan\print.php 171
+ERROR - 2018-09-13 14:47:32 --> Severity: Notice  --> Undefined variable: gt_potongan_gaji C:\xampp\htdocs\koperasi\application\views\laporan_potongan\print.php 194

@@ -39,10 +39,10 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-3 control-label" for="InputText">Status hubungan  :</label>
+                            <label class="col-md-3 control-label" for="InputText">Status Menikah  :</label>
                             <div class="col-md-8">
                             <?php
-                            $relationship = array('Sendiri' => 'Sendiri','Menikah' => 'Menikah');
+                            $relationship = array('Belum Menikah' => 'Belum Menikah','Menikah' => 'Menikah', 'Bercerai' => 'Bercerai');
                             
                             echo form_dropdown('relationship',$relationship,'','id="relationship" class="select2-size  form-control input-small" ');?>
                             </div>
@@ -94,7 +94,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-3 control-label" for="InputText">Tanggal gabung di sekolah  :</label>
+                            <label class="col-md-3 control-label" for="InputText">Bekerja Sejak  :</label>
                             <div class="col-md-8">
                                 <input id="join_date" name="join_date" type="text" placeholder="dd/mm/yyyy" class="date-picker form-control input-small"/>
                             </div>

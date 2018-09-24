@@ -11,7 +11,7 @@
             <div class="box-content">
                 <div class="row">
                     <div class="col-md-12">
-                        <p class="lead">Selamat datang di sistem koperasi simpan pinjam SMP Negeri 2 Cililin</p>
+                        <p class="lead">Selamat Datang di Sistem Koperasi Maju Mandiri Sekolah Menengah Pertama Negeri 2 Cililin</p>
                     </div>
                 </div>
             </div>

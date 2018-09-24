@@ -7,7 +7,7 @@ class Laporan_potongans extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model('laporan_potongan');
-		$this->title = 'Laporan Pemotongan Gaji';
+		$this->title = 'Laporan Simpan Pinjam';
 		$this->func = 'laporan_potongan';
 	}
 

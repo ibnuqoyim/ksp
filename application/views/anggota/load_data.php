@@ -34,6 +34,22 @@ if(count($result)>0){
                 <div class="box-content">
                     <div class="row">
                         <div class="col-md-12 user-profile-info">
+                        <div class="col-md-4">
+                        <?php
+                        if($result_val['gender']=='Laki-laki'){
+                            $photo = 'male.png';
+                        } else {
+                            $photo = 'female.png';
+                        }
+                        if($result_val['photo']){
+                            $photo = $result_val['photo'];
+                        }
+                        ?>
+                        <a href="<?=site_url($this->func.'s/detail/id/'.$result_val['id'])?>" title="Detail">
+                            <img class="img-responsive img-thumbnail" src="<?=base_url('template/images/anggota/'.$photo)?>" alt="profile picture" width="150px"/>
+                        </a>
+                        </div>
+                        <div class="col-md-8">
                             <p>
                                 <span>Jenis Kelamin :</span> <?=$result_val['gender']?>
                             </p>
@@ -52,7 +68,7 @@ if(count($result)>0){
                             <p>
                                 <span>Hp :</span> <?=$result_val['hp']?>
                             </p>
-
+                        </div>
                         </div>
                     </div>
                 </div>

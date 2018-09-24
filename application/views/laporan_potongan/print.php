@@ -2,7 +2,7 @@
 <br/>
 <table width="100%" border="0" cellspacing="0" cellpadding="4">
     <tr>
-        <td align="center" colspan="14"><strong><font size="+2">REKAP</font></strong></td>
+        <td align="center" colspan="14"><strong><font size="+2">REKAP LAPORAN SIMPAN PINJAM</font></strong></td>
     </tr>
     <tr>
         <td align="center" colspan="14"><strong><font size="+2"><?=strtoupper($period)?></font></strong></td>
@@ -17,8 +17,12 @@
 <br/>
 <?php
 if(count($result_simpanan)>0){
+    
 ?>
 
+
+<br/>
+<br/>
 <table border="1" width="100%" cellpadding="4" cellspacing="0" class="table table-hover fill-head">
     
     <thead>
@@ -97,6 +101,20 @@ if(count($result_simpanan)>0){
     </tfoot>
 
 </table>
+
+
+<?php
+} else {
+    echo '<div class="alert alert-warning">
+            <div class="alert-content">
+                <strong>Peringatan!</strong>
+                Tidak ada data simpanan
+            </div>
+    </div>';
+}
+
+if(count($result_pinjaman)>0){
+?>
 <br/>
 <?php //echo $pagination?>
 <br/>
@@ -155,7 +173,7 @@ if(count($result_simpanan)>0){
             $total_pinjaman = $lama_pinjaman*$angsuran;
             $sisa_lalu = $total_pinjaman-$total_uang_masuk;
 
-            $angsuran_ke = $pinjaman['angsuran_ke'];
+            $angsuran_ke = $result_val['angsuran_ke'];
         }
         //$total_potong_gaji = $total_simpanan+$angsuran;
     ?>
@@ -203,15 +221,21 @@ if(count($result_simpanan)>0){
 <br/>
 
 <br/>
+<br/>
+<br/>
 
 
 <?php
 } else {
-	echo '<div class="alert alert-warning">
-			<div class="alert-content">
-				<strong>Peringatan!</strong>
-				Tidak ada data
-			</div>
-	</div>';
+    echo '
+        <br/>
+        <br/>
+        <br/>
+        <div class="alert alert-warning" style="text-align: center;">
+            <div class="alert-content" style="align:center">
+                <strong>Peringatan!</strong>
+                Tidak ada data pinjaman
+            </div>
+    </div>';
 }
 ?>

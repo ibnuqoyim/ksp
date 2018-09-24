@@ -6,7 +6,7 @@
 
 <div class="row">
     <div class="col-lg-7">
-    	<div class="panel panel-primary">
+        <div class="panel panel-primary">
 
             <div class="panel-heading">
                 <h4 class="panel-title">Data Pribadi</h4>
@@ -14,12 +14,32 @@
 
             <div class="panel-body">
                 <div class="row">
+                    <div class="col-md-3">
+                        <?php
+                        if($result['gender']=='Laki-laki'){
+                            $photo = 'Male.png';
+                        } else {
+                            $photo = 'Female.png';
+                        }
+                        if($result['photo']){
+                            $photo = $result['photo'];
+                        }
+                        ?>
+                        <img class="img-responsive img-thumbnail" src="<?=base_url('template/images/anggota/'.$photo)?>" alt="profile picture"/>
+                        <br/><br/>
+                    </div>
                     <div class="col-md-12 user-profile-info">
                         <p>
                             <span>No. Anggota :</span> <?=$result['no_member']?>
                         </p>
                         <p>
                             <span>Nama :</span> <?=$result['name']?>
+                        </p>
+                        <p>
+                            <span>NIK :</span> <?=$result['nik']?>
+                        </p>
+                        <p>
+                            <span>NPWP :</span> <?=$result['npwp']?>
                         </p>
                         <p>
                             <span>Jenis Kelamin :</span> <?=$result['gender'] ? $result['gender'] : '-'?>
@@ -52,10 +72,10 @@
 
 
                         <p>
-                            <span>Guru Kelas :</span> <?=$result['company_name'] ? $result['company_name'] : '-'?>
+                            <span>Perusahaan :</span> <?=$result['company_name'] ? $result['company_name'] : '-'?>
                         </p>
                         <p>
-                            <span>Tanggal gabung di sekolah :</span> <?=$result['join_date'] ? format_datepicker($result['join_date']) : '-'?>
+                            <span>Tanggal gabung di perusahaan :</span> <?=$result['join_date'] ? format_datepicker($result['join_date']) : '-'?>
                         </p>
                         <p>
                             <span>Jabatan :</span> <?=$result['position'] ? $result['position'] : '-'?>
@@ -145,7 +165,7 @@
 
 
 
-    	<div class="panel panel-primary">
+        <div class="panel panel-primary">
             <div class="panel-heading">
                 <h4 class="panel-title">Simpanan</h4>
             </div>
@@ -196,9 +216,9 @@
                     <div class="col-md-12 user-profile-info" id="form_display">
 
                 <?php
-				if(count($deposit)>0){
-					foreach($deposit as $deposit_key => $deposit_val){
-				?>
+                if(count($deposit)>0){
+                    foreach($deposit as $deposit_key => $deposit_val){
+                ?>
                         <p>
                             <span>Tanggal efektif :</span> <?=format_datepicker($deposit_val['date'])?>
                         </p>
@@ -230,16 +250,16 @@
                         </p>
 
                     <?php
-					if($deposit_key!=count($deposit)-1){
-						echo '<hr/>';
-					}
-					?>
+                    if($deposit_key!=count($deposit)-1){
+                        echo '<hr/>';
+                    }
+                    ?>
                     
 
                 <?php
-					}
-				}
-				?>
+                    }
+                }
+                ?>
 
                     </div>
                 </div>

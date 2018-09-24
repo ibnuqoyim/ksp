@@ -64,11 +64,11 @@ class Laporan_potongan extends CI_Model
 		$memberid		= $sess['memberid'] ? $sess['memberid'] : '';
 		$companyid		= $sess['companyid'] ? $sess['companyid'] : '';
 
-		$this->db->select('i.date as tgl_simpan,m.id as  memberid,m.name,m.no_member,i.amount');
+		$this->db->select('i.date as tgl_simpan,m.id as  memberid,m.name,m.no_member,i.amount,i.transaction as angsuran_ke');
 		$this->db->from('installment i');
 		$this->db->join('loan l','i.loanid=l.id');
 		$this->db->join('member m','m.id=l.memberid');
-
+		$this->db->where('l.status',0);
 		if($memberid){
 			$this->db->where('l.memberid',$memberid);
 		}

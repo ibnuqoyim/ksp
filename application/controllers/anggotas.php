@@ -163,7 +163,26 @@ class Anggotas extends CI_Controller
 	function add_process(){
 		//print_rr($_POST);
 		//die();
+		if($_FILES['photo']['name']){ //jika ada dokumen
+			$filename = strtolower(basename($_FILES['photo']['name']));
+			$filenameArr = explode('.',$filename);
+			$ori_name = str_replace(' ','_',$filenameArr[0]);
+			$ext = $filenameArr[count($filenameArr)-1];
+			$ran = date("mdYHis");
+			$ran2 = $ran.".";
+			$target = 'template/images/anggota/';
+			$target = $target.$ori_name.'_'.$ran2.$ext;
+
+			if(@move_uploaded_file($_FILES['photo']['tmp_name'], $target))
+			{
+				$entry['photo'] = $ori_name.'_'.$ran2.$ext;
+			}
+		}
+
+		
 		$entry['no_member']			= no_member();
+		$entry['nik']				= $this->input->post('nik');
+		$entry['npwp']				= $this->input->post('npwp');
 		$entry['name']				= $this->input->post('name');
 		$entry['gender']			= $this->input->post('gender');
 		$entry['birthplace']		= $this->input->post('birthplace');
@@ -320,8 +339,25 @@ class Anggotas extends CI_Controller
 	function edit_process(){
 
 		$id = $this->uri->segment(4);
+		if($_FILES['photo']['name']){ //jika ada dokumen
+			$filename = strtolower(basename($_FILES['photo']['name']));
+			$filenameArr = explode('.',$filename);
+			$ori_name = str_replace(' ','_',$filenameArr[0]);
+			$ext = $filenameArr[count($filenameArr)-1];
+			$ran = date("mdYHis");
+			$ran2 = $ran.".";
+			$target = 'template/images/anggota/';
+			$target = $target.$ori_name.'_'.$ran2.$ext;
+
+			if(@move_uploaded_file($_FILES['photo']['tmp_name'], $target))
+			{
+				$entry['photo'] = $ori_name.'_'.$ran2.$ext;
+			}
+		}
 
 
+		$entry['nik']				= $this->input->post('nik');
+		$entry['npwp']				= $this->input->post('npwp');
 		$entry['name']				= $this->input->post('name');
 		$entry['gender']			= $this->input->post('gender');
 		$entry['birthplace']		= $this->input->post('birthplace');

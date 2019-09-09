@@ -166,13 +166,13 @@
                         <div class="form-group">
                             <label class="col-md-3 control-label" for="InputText">Pokok <span class="require">*</span> :</label>
                             <div class="col-md-8">
-                                <input id="pokok" name="pokok" class="form-control angka" type="text" placeholder="50.000.00"  maxlength="20" onkeypress="return blockNonNumbers(this, event, true, false);" disabled>
+                                <input id="pokok" name="pokok" class="form-control angka" type="text"  value="<?=format_uang(50000)?>" maxlength="20"  readonly="readonly">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-3 control-label" for="InputText">Wajib <span class="require">*</span> :</label>
                             <div class="col-md-8">
-                                <input id="wajib" name="wajib" class="form-control angka" type="text" placeholder="25.000.00" maxlength="20" onkeypress="return blockNonNumbers(this, event, true, false);" disabled>
+                                <input id="wajib" name="wajib" class="form-control angka" type="text" value="<?=format_uang(25000)?> maxlength="20" readonly="readonly" >
                             </div>
                         </div>
                         <div class="form-group">

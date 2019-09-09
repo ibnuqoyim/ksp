@@ -2,16 +2,17 @@ jQuery(document).ready(function () {
     form_validation.init();
 
 	get_maksimal_pinjam();
-	bunga_persen();
+	angsuran_perbulan();
+	//bunga_persen();
 	jQuery('#memberid').on('change', function(){
 		get_maksimal_pinjam();
 	});
-	jQuery('.flag').on('change', function(){
-		bunga_persen();
-	});
-	jQuery('#lama_angsuran').on('change', function(){
-		bunga_persen();
-	});
+	//jQuery('.flag').on('change', function(){
+	//	bunga_persen();
+	//});
+	//jQuery('#lama_angsuran').on('change', function(){
+	//	bunga_persen();
+	//});
 	jQuery('#bunga').on('change', function(){
 		angsuran_perbulan();
 	});
@@ -21,9 +22,6 @@ jQuery(document).ready(function () {
 
 });
 
-jQuery('#date').datepicker().on('changeDate', function(ev){
-	get_maksimal_pinjam();
-});
 
 function get_maksimal_pinjam(){
 	var date = $('#date').val();
@@ -55,18 +53,9 @@ function get_maksimal_pinjam(){
 }
 
 function bunga_persen(){
-	var flag = $('.flag:checked').val();
-	var lama = parseFloat($('#lama_angsuran').val());
+	var date = $('#date').val();
 	
-	var bunga = 0.012; //besar bunga
-	if(flag=='Tahun'){
-		var bunga = lama*10;
-	}
-	if(isNaN(bunga)){
-		var bunga = 0;
-	}
-
-	$('#bunga').val(bunga);
+	$('#bunga').val(date.getFullYear());
 	angsuran_perbulan();
 }
 

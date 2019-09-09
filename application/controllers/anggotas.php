@@ -177,7 +177,7 @@ class Anggotas extends CI_Controller
 		$entry['phone']				= $this->input->post('phone');
 		$entry['hp']				= $this->input->post('hp');
 		$entry['companyid']			= $this->input->post('companyid');
-		$entry['join_date']			= format_date_us($this->input->post('join_date'));
+		$entry['join_date']			= $this->input->post('join_date');
 		$entry['position']			= $this->input->post('position');
 		$entry['create_on']			= date('Y-m-d H:i:s');
 		$entry['create_by']			= $this->session->userdata('userid');
@@ -187,7 +187,7 @@ class Anggotas extends CI_Controller
 		$memberid = $this->anggota->insert_data($entry);
 
 		$entry2['memberid']		= $memberid;
-		$entry2['date']			= format_date_us($this->input->post('date'));
+		$entry2['date']			= $this->input->post('date');
 		$entry2['pokok']		= clean_separator($this->input->post('pokok'));
 		$entry2['wajib']		= clean_separator($this->input->post('wajib'));
 		$entry2['sukarela']		= clean_separator($this->input->post('sukarela'));

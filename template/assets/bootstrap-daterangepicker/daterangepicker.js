@@ -15,8 +15,8 @@
         //state
         this.startDate = Date.today();
         this.endDate = Date.today();
-        this.minDate = false;
-        this.maxDate = false;
+        this.minDate = true;
+        this.maxDate = true;
         this.changed = false;
         this.ranges = {};
         this.opens = 'right';

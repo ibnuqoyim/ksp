@@ -17,7 +17,7 @@
                         <div class="form-group">
                             <label class="col-md-3 control-label">Tanggal <span class="require">*</span> :</label>
                             <div class="col-md-3">
-                                <input id="date" name="date" type="text" placeholder="dd/mm/yyyy" class="datepicker form-control input-small" onclick="setbunga()"/>
+                                <input id="date" name="date" type="date" onchange="setbunga()" placeholder="dd/mm/yyyy" class="form-control input-small" />
                             </div>
                         </div>
                         <div class="form-group">
@@ -48,7 +48,7 @@
 							</div>
                             <div class="col-md-4">
                             	<input type="hidden" name="flag" class="flag" value="Bulan" checked="checked" />  &nbsp;&nbsp;
-                            	<input type="hidden" name="flag" class="flag" value="Tahun" />  
+
                             </div> 
 							<!--<div class="col-md-3">
 								<select id="lama_angsuran" name="lama_angsuran"  class="form-control" onkeypress="return blockNonNumbers(this, event, true, false);">
@@ -60,7 +60,7 @@
                         <div class="form-group">
                             <label class="col-md-3 control-label">Bungak (%) <span class="require">*</span> :</label>
                             <div class="col-md-2">
-                                <input id="bunga" name="bunga" readonly="readonly" class="form-control angka" type="text" maxlength="20" onkeypress="return blockNonNumbers(this, event, true, false);">
+                                <input id="bunga" name="bunga" readonly="readonly" class="form-control angka" type="text" maxlength="20">
                             </div>
                         </div>
                         <div class="form-group">
@@ -105,9 +105,9 @@
 }
 	function setbunga()
 	{
-		var thn = document.getElementById('date').value;
-		var thn = thn.getFullYear();
-		alert("hehe")
+		var d = new Date(document.getElementById('date').value);
+		var thn = d.getFullYear();
+		alert(thn)
 		if (thn == 2019 || thn == 2020)
 		{
 			document.getElementById('bunga').value = 0.02 ;

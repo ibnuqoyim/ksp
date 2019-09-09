@@ -30,13 +30,13 @@
                         <div class="form-group">
                             <label class="col-md-3 control-label">Simpanan Pokok <span class="require">*</span> :</label>
                             <div class="col-md-5">
-                                <input id="pokok" name="pokok" class="form-control angka" type="text" placeholder="0.00" maxlength="20" onkeypress="return blockNonNumbers(this, event, true, false);">
+                                <input id="pokok" name="pokok" readonly="readonly" class="form-control angka" type="text" value="<?=format_uang(50000)?>" placeholder="0.00" maxlength="20" onkeypress="return blockNonNumbers(this, event, true, false);">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-3 control-label">Simpanan Wajib <span class="require">*</span> :</label>
                             <div class="col-md-5">
-                                <input id="wajib" name="wajib" class="form-control angka" type="text" placeholder="0.00" maxlength="20" onkeypress="return blockNonNumbers(this, event, true, false);">
+                                <input id="wajib" name="wajib" readonly="readonly" class="form-control angka" type="text" value="<?=format_uang(25000)?>" placeholder="0.00" maxlength="20" onkeypress="return blockNonNumbers(this, event, true, false);">
                             </div>
                         </div>
                         <div class="form-group">

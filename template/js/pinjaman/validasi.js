@@ -9,10 +9,10 @@ jQuery(document).ready(function () {
 	jQuery('.flag').on('change', function(){
 		bunga_persen();
 	});
-	jQuery('#lama_angsuran').on('keyup', function(){
+	jQuery('#lama_angsuran').on('change', function(){
 		bunga_persen();
 	});
-	jQuery('#bunga').on('keyup', function(){
+	jQuery('#bunga').on('change', function(){
 		angsuran_perbulan();
 	});
 	jQuery('#amount').on('keyup', function(){
@@ -57,7 +57,8 @@ function get_maksimal_pinjam(){
 function bunga_persen(){
 	var flag = $('.flag:checked').val();
 	var lama = parseFloat($('#lama_angsuran').val());
-	var bunga = 0.02;
+	
+	var bunga = 0.012; //besar bunga
 	if(flag=='Tahun'){
 		var bunga = lama*10;
 	}

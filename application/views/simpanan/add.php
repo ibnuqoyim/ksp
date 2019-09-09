@@ -9,7 +9,7 @@
                 <form action="<?=site_url($this->func.'s/add_process')?>" class="form-horizontal form-seperated" id="form-tambah" role="form" method="post">
                     <div class="form-body">
                         <div class="form-group">
-                            <label class="col-md-3 control-label">No. Transaksi <span class="require">*</span> :</label>
+                            <label class="col-md-3 control-label">No. Simpanan <span class="require">*</span> :</label>
                             <div class="col-md-5">
                                 <input class="form-control" type="text" disabled="disabled" value="xxxxxxxx">
                             </div>

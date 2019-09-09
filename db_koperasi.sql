@@ -172,7 +172,7 @@ CREATE TABLE `loan` (
   `no_loan` varchar(20) NOT NULL,
   `date` date NOT NULL,
   `amount` decimal(20,2) NOT NULL DEFAULT '0.00',
-  `bunga` decimal(5,2) NOT NULL DEFAULT '0.00' COMMENT 'persen dlm bulan (0.83/bulan)',
+  `bunga` decimal(5,2) NOT NULL DEFAULT '0.00' COMMENT 'persen dlm bulan (0.02/bulan)',
   `lama_angsuran` int(4) NOT NULL DEFAULT '1' COMMENT 'dalam bulan',
   `perbulan` decimal(20,2) NOT NULL DEFAULT '0.00',
   `flag` enum('Tahun','Bulan') NOT NULL DEFAULT 'Bulan',

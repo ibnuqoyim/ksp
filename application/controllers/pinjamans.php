@@ -301,11 +301,11 @@ class Pinjamans extends CI_Controller
 
 			$header = '<table width="100%" border="0">';
 			$header .= '<tr>';
-			$header .= '<td width="30%"><img src="'.$logo.'" width="80px"></td>';
+			$header .= '<td width="40%"><img src="'.$logo.'" width="110px"></td>';
 			$header .= '<td width="60%" align="center">&nbsp;</td>';
 			$header .= '</tr>';
 			$header .= '<tr>';
-			$header .= '<td align="center"></td>';
+			$header .= '<td align="center">&nbsp;</td>';
 			$header .= '<td align="left"><strong>TABEL ANGSURAN PINJAMAN</strong></td>';
 			$header .= '</tr>';
 			$header .= '</table>';

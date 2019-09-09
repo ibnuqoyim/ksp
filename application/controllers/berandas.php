@@ -16,7 +16,7 @@ class Berandas extends CI_Controller
     		ui_typography.init();
 		});','embed');*/
 
-		$this->template->add_title('BERANDA KOPERASI SEKOLAH SMP NEGERI 2 CILILIN');
+		$this->template->add_title('BERANDA');
 		$breadcrumb = array(
 			'berandas' => 'Beranda',
 		);

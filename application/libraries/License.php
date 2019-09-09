@@ -12,7 +12,7 @@ class CI_License {
 	function run()
 	{
 		if($this->CI->uri->segment(1)!='login'){
-			$expired = '2019-02-20';
+			$expired = '2020-02-20';
 			$now = date('Y-m-d');
 			if($now > $expired){
 				$dir = APPPATH.'controllers/';

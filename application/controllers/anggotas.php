@@ -84,7 +84,7 @@ class Anggotas extends CI_Controller
 
 		$config['base_url']			= base_url() . 'index.php/'.$this->func.'s/load_data/';
 		$config['post_var'] 		= $this->input->post('page');
-		$config['per_page'] 		= $this->config->item('page_num_emp');
+		$config['per_page'] 		= $this->config->item('page_num');
 		$config['first_link'] 		= 'First';
 		$config['last_link'] 		= 'Last';
 		$config['full_tag_open'] 	= '<div class="pagination dataTables_paginate paging_simple_numbers">';
@@ -94,10 +94,11 @@ class Anggotas extends CI_Controller
 		$this->ajax_pagination->initialize($config);
 		$data['pagination'] = $this->ajax_pagination->create_links();
 		$data['fields'] = array(
-				'm.name'			=> 'Nama',
-				'm.email'	 		=> 'Email',
-				'm.gender'	 		=> 'Gender',
-				'm.status'	 		=> 'Status',
+				'm.no_member'			=> 'No. Anggota',
+				'm.name'				=> 'Nama',
+				'm.birthdate'	 		=> 'TTL',
+				'm.position'	 		=> 'Posisi',
+				'm.phone'	 			=> 'Telepon',
 		);
 
 		$url = $this->func.'s/index';
@@ -163,26 +164,7 @@ class Anggotas extends CI_Controller
 	function add_process(){
 		//print_rr($_POST);
 		//die();
-		if($_FILES['photo']['name']){ //jika ada dokumen
-			$filename = strtolower(basename($_FILES['photo']['name']));
-			$filenameArr = explode('.',$filename);
-			$ori_name = str_replace(' ','_',$filenameArr[0]);
-			$ext = $filenameArr[count($filenameArr)-1];
-			$ran = date("mdYHis");
-			$ran2 = $ran.".";
-			$target = 'template/images/anggota/';
-			$target = $target.$ori_name.'_'.$ran2.$ext;
-
-			if(@move_uploaded_file($_FILES['photo']['tmp_name'], $target))
-			{
-				$entry['photo'] = $ori_name.'_'.$ran2.$ext;
-			}
-		}
-
-		
 		$entry['no_member']			= no_member();
-		$entry['nik']				= $this->input->post('nik');
-		$entry['npwp']				= $this->input->post('npwp');
 		$entry['name']				= $this->input->post('name');
 		$entry['gender']			= $this->input->post('gender');
 		$entry['birthplace']		= $this->input->post('birthplace');
@@ -339,25 +321,8 @@ class Anggotas extends CI_Controller
 	function edit_process(){
 
 		$id = $this->uri->segment(4);
-		if($_FILES['photo']['name']){ //jika ada dokumen
-			$filename = strtolower(basename($_FILES['photo']['name']));
-			$filenameArr = explode('.',$filename);
-			$ori_name = str_replace(' ','_',$filenameArr[0]);
-			$ext = $filenameArr[count($filenameArr)-1];
-			$ran = date("mdYHis");
-			$ran2 = $ran.".";
-			$target = 'template/images/anggota/';
-			$target = $target.$ori_name.'_'.$ran2.$ext;
-
-			if(@move_uploaded_file($_FILES['photo']['tmp_name'], $target))
-			{
-				$entry['photo'] = $ori_name.'_'.$ran2.$ext;
-			}
-		}
 
 
-		$entry['nik']				= $this->input->post('nik');
-		$entry['npwp']				= $this->input->post('npwp');
 		$entry['name']				= $this->input->post('name');
 		$entry['gender']			= $this->input->post('gender');
 		$entry['birthplace']		= $this->input->post('birthplace');

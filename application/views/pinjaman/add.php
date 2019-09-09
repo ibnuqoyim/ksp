@@ -17,7 +17,7 @@
                         <div class="form-group">
                             <label class="col-md-3 control-label">Tanggal <span class="require">*</span> :</label>
                             <div class="col-md-3">
-                                <input id="date" name="date" type="text" placeholder="dd/mm/yyyy" class="date-picker form-control input-small"/>
+                                <input id="date" name="date" type="text" placeholder="dd/mm/yyyy" class="datepicker form-control input-small" onclick="setbunga()"/>
                             </div>
                         </div>
                         <div class="form-group">
@@ -38,18 +38,29 @@
                         </div>
                         <div class="form-group">
                             <label class="col-md-3 control-label">Lama Angsuran <span class="require">*</span> :</label>
-                            <div class="col-md-2">
-                                <input id="lama_angsuran" name="lama_angsuran" class="form-control" type="text" placeholder="0" maxlength="4" onkeypress="return blockNonNumbers(this, event, true, false);">
-                            </div>
+                            <div class="col-md-3">
+                                <select id="lama_angsuran" name="lama_angsuran"  class="form-control" >
+									<option value="3">Jangka Pendek (3 Bulan)</option>
+									<option value="24">Jangka Panjang (24 Bulan)</option>
+								</select>
+								<input id="lamas_angsuran" name="lamas_angsuran" class="form-control" type="hidden" placeholder="0" maxlength="4" onchange="return blockNonNumbers(this, event, true, false);">
+								
+							</div>
                             <div class="col-md-4">
-                            	<input type="radio" name="flag" class="flag" value="Bulan" checked="checked" /> bulan &nbsp;&nbsp;
-                            	<input type="radio" name="flag" class="flag" value="Tahun" /> tahun 
-                            </div>
+                            	<input type="hidden" name="flag" class="flag" value="Bulan" checked="checked" />  &nbsp;&nbsp;
+                            	<input type="hidden" name="flag" class="flag" value="Tahun" />  
+                            </div> 
+							<!--<div class="col-md-3">
+								<select id="lama_angsuran" name="lama_angsuran"  class="form-control" onkeypress="return blockNonNumbers(this, event, true, false);">
+									<option value="3">Jangka Pendek (3 Bulan)</option>
+									<option value="24">Jangka Panjang (24 Bulan)</option>
+								</select>
+							 </div>-->
                         </div>
                         <div class="form-group">
-                            <label class="col-md-3 control-label">Bunga (%) <span class="require">*</span> :</label>
+                            <label class="col-md-3 control-label">Bungak (%) <span class="require">*</span> :</label>
                             <div class="col-md-2">
-                                <input id="bunga" name="bunga" class="form-control angka" type="text" placeholder="0.02" maxlength="20" onkeypress="return blockNonNumbers(this, event, true, false);">
+                                <input id="bunga" name="bunga" readonly="readonly" class="form-control angka" type="text" maxlength="20" onkeypress="return blockNonNumbers(this, event, true, false);">
                             </div>
                         </div>
                         <div class="form-group">
@@ -84,4 +95,26 @@
     </div>
 </div>
 
-
+<script type='text/javascript'>
+	function isi_lama_angsuran(){
+		var jangka = document.getElementById('jangka_angsuran').value;
+		
+		document.getElementById('lama_angsuran').value = jangka;
+		
+		
+}
+	function setbunga()
+	{
+		var thn = document.getElementById('date').value;
+		var thn = thn.getFullYear();
+		alert("hehe")
+		if (thn == 2019 || thn == 2020)
+		{
+			document.getElementById('bunga').value = 0.02 ;
+		}
+		else 
+		{
+			document.getElementById('bunga').value = 0.1;
+		}
+	}
+</script>

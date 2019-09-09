@@ -1,11 +1,15 @@
 jQuery(document).ready(function () {
+	$('#pokok').val(50001).formatCurrency({ symbol:"", });
+	$('#wajib').val(25000).formatCurrency({ symbol:"", });
     form_validation.init();
     form_validation_perubahan.init();
 });
 
-var form_validation = function () {
 
+var form_validation = function () {
+	
     var handleValidate = function () {
+
 		$("#form-tambah").validate({
             errorElement: 'span',
             errorClass: 'help-block',
@@ -13,7 +17,7 @@ var form_validation = function () {
                 name: { required: true, },
                 gender: { required: true, },
                 companyid: { required: true, },
-                date: { required: true, },
+                date: { required: true,},
                 pokok: { required: true, },
                 wajib: { required: true, },
                 sukarela: { required: true, },

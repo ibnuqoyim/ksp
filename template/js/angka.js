@@ -100,14 +100,14 @@ Modify : Daud . D simbolon
         Dispose of the textbox to unbind the events.
         */
         this.dispose = function() {
-           // $(this).die('change', onchange);
+           $(this).die('change', onchange);
             $(this).die('keypress', keypress);
             $(this).die('keydown', keydown);
 			$(this).live('keyup', keyup);
             //window.clearInterval(_intervalHandler);
         };
 
-        //$(this).live('change', onchange);
+        $(this).live('change', onchange);
         $(this).live('keypress', keypress);
         $(this).live('keydown', keydown);
 		$(this).live('keyup', keyup);

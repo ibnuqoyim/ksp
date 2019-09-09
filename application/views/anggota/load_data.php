@@ -14,65 +14,64 @@ if($keywords!=''){
 <?php
 if(count($result)>0){
 ?>
+<table class="table table-striped table-hover fill-head">
+    <thead>
+	<?php
+    $tpl_head = '<tr>';
+	$tpl_head .= '<th style="text-align:center">#</th>';
+    foreach ($fields as $key_field => $val_field) {
+		if ($sort_by == $key_field) {
+			$class = 'sort-'.strtolower($sort_order).' sort-active';
+		} else {
+			$class = 'sort-desc sort-asc';
+		}
 
+		$sorting = (($sort_order == 'asc' && $sort_by == $key_field) ? 'desc' : 'asc');
+		$anchor = '<a class="sorting '.$class.'" href="#" field="'.$key_field.'" name="'.$sorting.'">'.$val_field.'</a>';
+		
+        $tpl_head .= '<th style="text-align:center">'.$anchor.'</th>';
+    }
+	
+    $tpl_head .= '</tr>';
+    echo $tpl_head;
+    ?>
+    </thead>
+    <tbody>
     <?php
 	foreach($result as $result_key => $result_val){
-		//echo ($result_key%3).'==';
-		if($result_key%3==0){
-			echo '<div class="row">';
-		}
 	?>
-        <div class="col-lg-4">
-            <div class="box">
-    
-                <div class="box-title">
-                	<a href="<?=site_url($this->func.'s/detail/id/'.$result_val['id'])?>" title="Detail">
-                        <h3 ><i class="fa fa-user"></i> <?=$result_val['no_member']?> - <?=$result_val['name']?></h3>
-                    </a>
-                </div>
-    
-                <div class="box-content">
-                    <div class="row">
-                        <div class="col-md-12 user-profile-info">
-                            <p>
-                                <span>Jenis Kelamin :</span> <?=$result_val['gender']?>
-                            </p>
-                            <p>
-                                <span>TTL :</span> <?=$result_val['birthplace'] ? $result_val['birthplace'] : '-'?>, <?=$result_val['birthdate'] ? format_datepicker($result_val['birthdate']) : '-'?>
-                            </p>
-                            <p>
-                                <span>Status :</span> <?=$result_val['relationship']?>
-                            </p>
-                            <p>
-                                <span>Guru Kelas :</span> <?=$result_val['company_name']?>
-                            </p>
-                            <p>
-                                <span>Telepon :</span> <?=$result_val['phone']?>
-                            </p>
-                            <p>
-                                <span>Hp :</span> <?=$result_val['hp']?>
-                            </p>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
+        <tr id="row_<?=$result_val['id']?>">
+            <td align="center"><?=($result_key+1)+$page?></td>
+            <td align="center"><?=$result_val['no_member']?></td>
+            <td align="center"><a href="<?=site_url($this->func.'s/detail/id/'.$result_val['id'])?>" title="Detail"><?=$result_val['name']?></a></td>
+            <td align="center"><?=$result_val['birthplace']?>, <?=format_datepicker($result_val['birthdate'])?></td>
+            <td><?=$result_val['position']?></td>
+            <td align="center"><?=$result_val['phone']?></td>
+            
+            <td>
+            	
+            </td>
+        </tr>
     <?php
-		if($result_key%3==2){
-			echo '</div>';
-		}
 	}
 	?>
-</div>
-<div class="clearfix"></div>
-<div class="row">
-    <div class="col-lg-12">
-		<?=$pagination?>
+    </tbody>
+</table>
+<br/>
+<?=$pagination?>
+<!--Modal Confirm-->
+<div id="modal-confirm" tabindex="-1" role="dialog" aria-hidden="true" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">Apakah anda yakin akan menghapus data ini?</div>
+            <div class="modal-footer">
+            	<input type="hidden" id="id" />
+                <button type="button" data-dismiss="modal" class="btn btn-default">Batal</button>
+                <button type="button" data-dismiss="modal" class="btn btn-success btn-hapus">Ok</button>
+            </div>
+        </div>
     </div>
 </div>
-
 
 <?php
 } else {

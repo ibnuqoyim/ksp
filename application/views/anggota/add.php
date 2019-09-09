@@ -108,7 +108,7 @@
                         <div class="form-group">
                             <label class="col-md-3 control-label" for="InputText">Bekerja Sejak  :</label>
                             <div class="col-md-8">
-                                <input id="join_date" name="join_date" type="text" placeholder="dd/mm/yyyy" class="date-picker form-control input-small"/>
+                                <input id="join_date" name="join_date" type="date" placeholder="dd/mm/yyyy" class="form-control input-small" onchange="test()"/>
                             </div>
                         </div>
 
@@ -160,19 +160,19 @@
                         <div class="form-group">
                             <label class="col-md-3 control-label" for="InputText">Tanggal efektif <span class="require">*</span> :</label>
                             <div class="col-md-8">
-                                <input id="date" name="date" type="text" placeholder="dd/mm/yyyy" class="date-picker form-control input-small"/>
+                                <input id="date" name="date" type="date" placeholder="dd/mm/yyyy" class="form-control input-small"/>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-3 control-label" for="InputText">Pokok <span class="require">*</span> :</label>
                             <div class="col-md-8">
-                                <input id="pokok" name="pokok" class="form-control angka" type="text" placeholder="0.00" maxlength="20" onkeypress="return blockNonNumbers(this, event, true, false);">
+                                <input id="pokok" name="pokok" class="form-control angka" type="text" placeholder="50.000.00"  maxlength="20" onkeypress="return blockNonNumbers(this, event, true, false);" disabled>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-3 control-label" for="InputText">Wajib <span class="require">*</span> :</label>
                             <div class="col-md-8">
-                                <input id="wajib" name="wajib" class="form-control angka" type="text" placeholder="0.00" maxlength="20" onkeypress="return blockNonNumbers(this, event, true, false);">
+                                <input id="wajib" name="wajib" class="form-control angka" type="text" placeholder="25.000.00" maxlength="20" onkeypress="return blockNonNumbers(this, event, true, false);" disabled>
                             </div>
                         </div>
                         <div class="form-group">
@@ -206,4 +206,18 @@
     </div>
 </div>
 
-
+<script type='text/javascript'>
+	function test(){
+		var minday = document.getElementById('join_date').value
+		var today = new Date();
+		var bulan = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"];
+		var hari = ["00","01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12","13", "14", "15", "16", "17", "18", "19", "20", "21", "22","23", "24", "25", "26", "27", "28", "29", "30", "31"];
+		var poe_ini = [today.getFullYear() , bulan[today.getMonth()] , hari[today.getDate()]];
+		var xx = poe_ini.join("-");
+		
+		document.getElementById('date').setAttribute("min", minday);
+		document.getElementById('date').setAttribute("max", xx);
+		
+		
+}
+</script>

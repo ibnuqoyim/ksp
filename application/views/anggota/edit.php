@@ -1,6 +1,6 @@
-<div class="row">
-    <div class="col-lg-12">
-        <div class="panel panel-primary">
+ <div class="row">
+     <div class="col-lg-12">
+    	<div class="panel panel-primary">
             <div class="panel-heading">
                 <h4 class="panel-title">Edit Data <?=$this->title?></h4>
             </div>
@@ -12,18 +12,6 @@
                             <label class="col-md-3 control-label" for="InputText">No. Anggota <span class="require">*</span> :</label>
                             <div class="col-md-8">
                                 <input value="<?=$result['no_member']?>" class="form-control" disabled="disabled">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-md-3 control-label" for="InputText">NIK <span class="require">*</span> :</label>
-                            <div class="col-md-8">
-                                <input id="nik" name="nik" class="form-control" type="text" placeholder="NIK" maxlength="150">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-md-3 control-label" for="InputText">NPWP <span class="require">*</span> :</label>
-                            <div class="col-md-8">
-                                <input id="npwp" name="npwp" class="form-control" type="text" placeholder="NPWP" maxlength="150">
                             </div>
                         </div>
                         <div class="form-group">
@@ -76,14 +64,14 @@
                         <div class="form-group">
                             <label class="col-md-3 control-label" for="InputText">Alamat (ktp) :</label>
                             <div class="col-md-8">
-                                <textarea name="address" id="address" class="form-control" placeholder="Alamat (ktp)"><?=$result['address']?></textarea>
+                            	<textarea name="address" id="address" class="form-control" placeholder="Alamat (ktp)"><?=$result['address']?></textarea>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label class="col-md-3 control-label" for="InputText">Alamat (saat ini) :</label>
                             <div class="col-md-8">
-                                <textarea name="current_address" id="current_address" class="form-control" placeholder="Alamat (saat ini)"><?=$result['current_address']?></textarea>
+                            	<textarea name="current_address" id="current_address" class="form-control" placeholder="Alamat (saat ini)"><?=$result['current_address']?></textarea>
                             </div>
                         </div>
                         <div class="form-group">
@@ -99,14 +87,14 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-3 control-label" for="InputText">Nama perusahaan <span class="require">*</span> :</label>
+                            <label class="col-md-3 control-label" for="InputText">Guru Kelas <span class="require">*</span> :</label>
                             <div class="col-md-8">
                             <?php
                             echo form_dropdown('companyid',$company,$result['companyid'],'id="companyid" class="select2-size  form-control input-small" ');?>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-3 control-label" for="InputText">Tanggal gabung di perusahaan  :</label>
+                            <label class="col-md-3 control-label" for="InputText">Tanggal gabung di Sekolah  :</label>
                             <div class="col-md-8">
                                 <input id="join_date" name="join_date" type="text" placeholder="dd/mm/yyyy" class="date-picker form-control input-small" value="<?=format_datepicker($result['join_date'])?>"/>
                             </div>
@@ -119,37 +107,7 @@
                                 <input id="position" name="position" class="form-control" type="text" placeholder="Jabatan" maxlength="50" value="<?=$result['position']?>">
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label class="col-md-3 control-label" for="InputText">Jabatan :</label>
-                            <div class="col-md-8">
-                                <input id="position" name="position" class="form-control" type="text" placeholder="Jabatan" maxlength="50">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-md-3 control-label" for="InputText">Foto :</label>
-                            <div class="col-md-6">
 
-                                <div class="fileupload fileupload-new" data-provides="fileupload">
-                                    <div class="input-group">
-                                        <div class="form-control uneditable-input">
-                                            <i class="fa fa-file fileupload-exists"></i> 
-                                            <span class="fileupload-preview"></span>
-                                        </div>
-                                        <div class="input-group-btn">
-                                            <a class="btn bun-default btn-file">
-                                                <span class="fileupload-new">Pilih file</span>
-                                                <span class="fileupload-exists">Ganti</span>
-                                                <input type="file" name="photo" id="photo" class="file-input">
-                                            </a>
-                                            <a href="#" class="btn btn-default fileupload-exists" data-dismiss="fileupload">Hapus</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <span><em>Extensi : PNG, JPG, GIF</em></span>
-                            </div>
-                        </div>
-
-                    </div>
 
                         <div class="form-group">
                             <div class="col-md-3"></div>

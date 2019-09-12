@@ -206,9 +206,12 @@ function cek_maks()
 	if (amount < aku) 
 	{
 		//alert("yes");
+		document.getElementById("Button").disabled = false;
 	}
 	else{
 		//alert("no");
 		document.getElementById('peringatan').innerHTML = "Amount melebihi maksimal pinjam, silahkan kurangi";
+		document.getElementById("Button").disabled = true;
+
 	}
 }

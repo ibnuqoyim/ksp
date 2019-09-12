@@ -73,7 +73,7 @@
                         <div class="form-group">
                             <div class="col-md-3"></div>
                             <div class="col-md-6">
-                                <button class="btn btn-success btn-outlined" type="submit" ><i class="fa fa-save"></i> Simpan</button>
+                                <button class="btn btn-success btn-outlined" id="Button" type="submit" ><i class="fa fa-save"></i> Simpan</button>
                             </div>
                         
                         </div>

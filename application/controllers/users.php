@@ -138,7 +138,7 @@ class Users extends CI_Controller
 		
 		$data['role'] = role_dropdown();
 		$data['employee'] = employee_dropdown();
-
+		//$data['employee'] = $data['employee'] + member_all_dropdown2();
 		$this->template->write_view('content','user/add',$data);
 		$this->template->render();
 	}
@@ -161,7 +161,19 @@ class Users extends CI_Controller
 		$this->session->set_flashdata('pesan',$pesan);
 		redirect('users');
 	}
-	
+	function get_dropdown_user(){
+		$idrole = $this->input->post('idrole');
+		
+		if ($idrole == 4) 
+		{
+			echo '<?php $employee = member_all_dropdown(); ?>';
+			
+		}
+		else
+		{
+			echo '<?php $employee = employee_dropdown(); ?>';
+		}
+	}
 	function edit() {            
 
 

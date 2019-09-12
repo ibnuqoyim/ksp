@@ -1,6 +1,5 @@
 jQuery(document).ready(function () {
-	$('#pokok').val(50001).formatCurrency({ symbol:"", });
-	$('#wajib').val(25000).formatCurrency({ symbol:"", });
+
     form_validation.init();
     form_validation_perubahan.init();
 });

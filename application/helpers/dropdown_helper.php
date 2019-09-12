@@ -97,7 +97,29 @@ if( ! function_exists('member_all_dropdown'))
 		return $return;
 	}
 }
-
+if( ! function_exists('member_all_dropdown2'))
+{
+	function member_all_dropdown2()
+	{
+		$CI = &get_instance();
+		$CI->load->database();
+		$CI->db->order_by('concat(no_member,\'-\',name)','ASC');
+		$q = $CI->db->get('member');
+		
+		$return = array();
+		
+		$return[''] = '- - - Pilih Anggota - - -';
+		if($q->num_rows() > 0)
+		{
+			foreach ($q->result() as $rows)
+			{
+				$return[$rows->no_member] = $rows->no_member.' - '.$rows->name;
+			}
+		}
+		
+		return $return;
+	}
+}
 if( ! function_exists('company_all_dropdown'))
 {
 	function company_all_dropdown()

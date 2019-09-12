@@ -133,7 +133,13 @@ class Anggota extends CI_Model
 			return $this->db->insert_id();
 		}
 	}
-	
+	function insert_data_deposit($data=array())
+	{
+		if(count($data)>0){
+			$this->db->insert('deposit',$data);
+			return $this->db->insert_id();
+		}
+	}
 	function insert_data_detail($data=array())
 	{
 		if(count($data)>0){

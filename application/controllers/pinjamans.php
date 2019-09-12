@@ -236,7 +236,7 @@ class Pinjamans extends CI_Controller
 		$id = $this->uri->segment(4);
 
 		$entry['memberid']		= $this->input->post('memberid');
-		$entry['date']			= format_date_us($this->input->post('date'));
+		$entry['date']			= $this->input->post('date');
 		$entry['amount']		= clean_separator($this->input->post('amount'));
 		$entry['bunga']			= clean_separator($this->input->post('bunga'));
 		$entry['lama_angsuran']	= clean_separator($this->input->post('lama_angsuran'));
@@ -273,7 +273,7 @@ class Pinjamans extends CI_Controller
 	}
 	
 	function get_maksimal_pinjam(){
-		$date = format_date_us($this->input->post('date'));
+		$date = $this->input->post('date');
 		$memberid = $this->input->post('memberid');
 		$detail = $this->pinjaman->get_maksimal_pinjam($date,$memberid);
 		$max = ($detail['pokok']*20)+($detail['wajib']*20)+($detail['sukarela']*4);
@@ -281,6 +281,7 @@ class Pinjamans extends CI_Controller
 			$max = 40000000;
 		}
 		echo 'Maksimal pinjaman adalah Rp. '.format_uang($max);
+		echo '<script type="text/javascript"> var aku = '.$max.'; </script>';
 	}
 
 

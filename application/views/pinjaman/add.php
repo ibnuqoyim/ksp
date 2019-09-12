@@ -16,30 +16,31 @@
                         </div>
                         <div class="form-group">
                             <label class="col-md-3 control-label">Tanggal <span class="require">*</span> :</label>
-                            <div class="col-md-3">
-                                <input id="date" name="date" type="date" onchange="setbunga()" placeholder="dd/mm/yyyy" class="form-control input-small" />
+                            <div class="col-md-5">
+                                <input id="date" name="date" type="date" placeholder="dd/mm/yyyy" class="form-control input-small" onchange="setbunga()" />
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-3 control-label">Anggota <span class="require">*</span> :</label>
                             <div class="col-md-5">
                                 <?php
-                                echo form_dropdown('memberid',$member,'','id="memberid" class="select2-size  form-control" ');?>
+                                echo form_dropdown('memberid',$member,'','id="memberid" class="select2-size  form-control" onchange="max_pinjaman()" ');?>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-3 control-label">Jumlah Pinjaman <span class="require">*</span> :</label>
                             <div class="col-md-3">
-                                <input id="amount" name="amount" class="form-control angka" type="text" placeholder="0.00" maxlength="20" onkeypress="return blockNonNumbers(this, event, true, false);"> 
+                                <input id="amount" name="amount" class="form-control angka" type="text" placeholder="0.00" maxlength="20" onchange="cek_maks()"> 
                             </div>
                             <div class="col-md-6">
                             <label class="control-label text-info" id="maksimal"></label>
+							<label class="control-label text-warning" id="peringatan"></label>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-3 control-label">Lama Angsuran <span class="require">*</span> :</label>
                             <div class="col-md-3">
-                                <select id="lama_angsuran" name="lama_angsuran"  class="form-control" >
+                                <select id="lama_angsuran" name="lama_angsuran"  class="form-control" onchange="hitung_perbulan()">
 									<option value="3">Jangka Pendek (3 Bulan)</option>
 									<option value="24">Jangka Panjang (24 Bulan)</option>
 								</select>
@@ -58,7 +59,7 @@
 							 </div>-->
                         </div>
                         <div class="form-group">
-                            <label class="col-md-3 control-label">Bungak (%) <span class="require">*</span> :</label>
+                            <label class="col-md-3 control-label">Bunga (%) <span class="require" onchange="hitung_perbulan()">*</span> :</label>
                             <div class="col-md-2">
                                 <input id="bunga" name="bunga" readonly="readonly" class="form-control angka" type="text" maxlength="20">
                             </div>
@@ -72,7 +73,7 @@
                         <div class="form-group">
                             <div class="col-md-3"></div>
                             <div class="col-md-6">
-                                <button class="btn btn-success btn-outlined" type="submit"><i class="fa fa-save"></i> Simpan</button>
+                                <button class="btn btn-success btn-outlined" type="submit" ><i class="fa fa-save"></i> Simpan</button>
                             </div>
                         
                         </div>
@@ -103,18 +104,5 @@
 		
 		
 }
-	function setbunga()
-	{
-		var d = new Date(document.getElementById('date').value);
-		var thn = d.getFullYear();
-		alert(thn)
-		if (thn == 2019 || thn == 2020)
-		{
-			document.getElementById('bunga').value = 0.02 ;
-		}
-		else 
-		{
-			document.getElementById('bunga').value = 0.1;
-		}
-	}
+
 </script>

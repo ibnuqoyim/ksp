@@ -9,6 +9,8 @@ class Anggotas extends CI_Controller
 		$this->load->model('anggota');
 		$this->title = 'Anggota';
 		$this->func = 'anggota';
+		
+		
 	}
 
 	function index() {
@@ -194,7 +196,20 @@ class Anggotas extends CI_Controller
 		$entry2['create_on']	= date('Y-m-d H:i:s');
 		$entry2['create_by']	= $this->session->userdata('userid');
 		$this->anggota->insert_data_detail($entry2);
-
+		
+		$entry3['memberid']		= $memberid;
+		$entry3['no_trans']		= no_transaksi();
+		$entry3['date']			= $this->input->post('date');
+		$entry3['pokok']		= clean_separator($this->input->post('pokok'));
+		$entry3['wajib']		= clean_separator($this->input->post('wajib'));
+		$entry3['sukarela']		= clean_separator($this->input->post('sukarela'));
+		$entry3['create_on']	= date('Y-m-d H:i:s');
+		$entry3['create_by']	= $this->session->userdata('userid');
+		
+		$this->db->trans_start(); /*untuk rollback jika data gagal*/
+		$this->anggota->insert_data_deposit($entry3);
+		
+		
 		$this->db->trans_complete();
 
 		$pesan = '<div class="alert alert-success">';

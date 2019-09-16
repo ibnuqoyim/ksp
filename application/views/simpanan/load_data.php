@@ -48,6 +48,9 @@ if(count($result)>0){
             <td align="right"><?=format_uang($result_val['pokok'])?></td>
             <td align="right"><?=format_uang($result_val['wajib'])?></td>
             <td align="right"><?=format_uang($result_val['sukarela'])?></td>
+			
+			<?php if ($this->session->userdata('roleid') != 4)
+{ ?>
             <td>
             	<div align="right">
                 	<a class="btn btn-primary btn-sm" href="<?=site_url($this->func.'s/edit/id/'.$result_val['id'])?>">
@@ -60,6 +63,7 @@ if(count($result)>0){
 
                 </div>
             </td>
+<?php } ?>
         </tr>
     <?php
 	}

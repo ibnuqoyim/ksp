@@ -17,12 +17,35 @@ class Logins extends CI_Controller
 		$data['pesan'] = '';
 		$this->load->view('login/login',$data);
 	}
+	function loginMember() {
+		
+		$data['username'] = '';
+		$data['warning'] = 'hide';
+		$data['pesan'] = '';
+		$this->load->view('login/login_member',$data);
+	}
 	
 	function login_process(){
 		$username = $this->input->post('username');
 		$password = $this->input->post('password');
 		$login = $this->login->getData($username,$password);
 		if($login==true){
+			redirect('berandas');
+		} else {
+			$this->session->sess_destroy();
+			$data['username'] = $username;
+			$data['warning'] = '';
+			$data['pesan'] = 'Pengguna & password invalid!';
+			$this->load->view('login/login',$data);
+		}
+	}
+	
+	function login_member_process(){
+		$username = $this->input->post('username');
+		$password = $this->input->post('password');
+		$login = $this->login->getDataMember($username,$password);
+		if($login==true){
+			
 			redirect('berandas');
 		} else {
 			$this->session->sess_destroy();

@@ -1,3 +1,5 @@
+<?php if ($this->session->userdata('roleid') != 4)
+{ ?>
 <div class="row">
     <div class="col-lg-1">
         <div class="panel">
@@ -16,7 +18,7 @@
     </div>
     <br/>
 </div>
-
+<?php } ?>
 <div class="row">
     <div class="col-lg-12">
         <?=$this->session->flashdata('pesan')?>

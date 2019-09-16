@@ -179,23 +179,23 @@
                                 <label class="col-md-3 control-label" for="InputText">Tanggal efektif <span class="require">*</span> :</label>
                                 <div class="col-md-8">
                                     <input type="hidden" name="frm_id_deposit" id="frm_id_deposit" value="" />
-                                    <input id="date" name="date" type="text" placeholder="dd/mm/yyyy" class="date-picker form-control input-small"/>
+                                    <input id="date" name="date" type="date" placeholder="dd/mm/yyyy" class=" form-control input-small" min="<?=$result['join_date']?>" max="<?php echo date('Y-m-d');?>" />
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-3 control-label" for="InputText">Pokok <span class="require">*</span> :</label>
                                 <div class="col-md-8">
-                                    <input id="pokok" name="pokok" class="form-control angka" type="text" placeholder="0.00" maxlength="20" onkeypress="return blockNonNumbers(this, event, true, false);">
+                                    <input id="pokok" name="pokok" class="form-control angka" value=<?=format_uang(25000)?> type="text" placeholder="0.00" maxlength="20" readonly="readonly">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-3 control-label" for="InputText">Wajib <span class="require">*</span> :</label>
                                 <div class="col-md-8">
-                                    <input id="wajib" name="wajib" class="form-control angka" type="text" placeholder="0.00" maxlength="20" onkeypress="return blockNonNumbers(this, event, true, false);">
+                                    <input id="wajib" name="wajib" class="form-control angka" value=<?=format_uang(50000)?> type="text" placeholder="0.00" maxlength="20" readonly="readonly">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-3 control-label" for="InputText">Sukarela <span class="require">*</span> :</label>
+                                <label class="col-md-3 control-label" for="InputText">Sukarela ss <span class="require">*</span> :</label>
                                 <div class="col-md-8">
                                     <input id="sukarela" name="sukarela" class="form-control angka" type="text" placeholder="0.00" maxlength="20" onkeypress="return blockNonNumbers(this, event, true, false);">
                                 </div>

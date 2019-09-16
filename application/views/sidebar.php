@@ -141,6 +141,9 @@
                     <li <?=$classSettingUser?>>
                         <a href="<?=site_url('users')?>">User</a>
                     </li>
+					<li <?=$classSettingUser?>>
+                        <a href="<?=site_url('users/member')?>">User Member</a>
+                    </li>
                     <li <?=$classSettingCompany?>>
                         <a href="<?=site_url('perusahaans')?>">Kelas</a>
                     </li>
@@ -149,7 +152,27 @@
         <?php
 		}
 		?>
-
+		<?php
+		
+		if($this->session->userdata('roleid')==4){
+		?>
+            <li <?=$classSimpanan?>>
+                <a href="<?=site_url('simpanans/member')?>">
+                <i class="fa fa-folder"></i>
+                <span>Simpanan</span>
+                </a>
+            </li>
+    
+            <li <?=$classPinjaman?>>
+                <a href="<?=site_url('pinjamans/member')?>">
+                <i class="fa fa-book"></i>
+                <span>Pinjaman</span>
+                </a>
+            </li>
+            
+        <?php
+		}
+		?>
     </ul>
     <div id="sidebar-collapse" class="visible-lg">
         <i class="fa fa-angle-double-left"></i>

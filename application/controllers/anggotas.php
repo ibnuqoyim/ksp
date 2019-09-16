@@ -226,7 +226,7 @@ class Anggotas extends CI_Controller
 
 
 		$entry2['memberid']		= $memberid;
-		$entry2['date']			= format_date_us($this->input->post('perubahan_date'));
+		$entry2['date']			= $this->input->post('perubahan_date');
 		$entry2['pokok']		= clean_separator($this->input->post('perubahan_pokok'));
 		$entry2['wajib']		= clean_separator($this->input->post('perubahan_wajib'));
 		$entry2['sukarela']		= clean_separator($this->input->post('perubahan_sukarela'));
@@ -327,6 +327,7 @@ class Anggotas extends CI_Controller
 		$this->template->add_breadcrumb($breadcrumb);
 		
 		$data['result'] = $this->anggota->detail_data($this->uri->segment(4));
+		$data['result2'] = $this->anggota->detail_deposit($this->uri->segment(4));
 		$data['company'] = company_all_dropdown();
 
 		$this->template->write_view('content',$this->func.'/edit',$data);
@@ -373,7 +374,7 @@ class Anggotas extends CI_Controller
 	function edit_deposit_process(){
 		$id = $this->uri->segment(4);
 
-		$entry2['date']			= format_date_us($this->input->post('date'));
+		$entry2['date']			= $this->input->post('date');
 		$entry2['pokok']		= clean_separator($this->input->post('pokok'));
 		$entry2['wajib']		= clean_separator($this->input->post('wajib'));
 		$entry2['sukarela']		= clean_separator($this->input->post('sukarela'));

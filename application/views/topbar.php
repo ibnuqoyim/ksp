@@ -10,15 +10,31 @@ KOPERASI
 </small>
 <?php //config_item('web_title')?>
 </a>
+<input type="hidden" name="memberidx" id="memberidx" value="<?php echo $this->session->userdata('member_id')?>"></input>
 <?php
-$detail = detail_employee($this->session->userdata('employeeid'));
+if ($this->session->userdata('roleid') == 4)
+{
+	$detail = detail_member($this->session->userdata('member_id'));
 if($detail['gender']=='Laki-laki'){
-	$avatar = base_url('template/images/employee/male.png');
+	$avatar = base_url('template/images/anggota/male.png');
 } else {
-	$avatar = base_url('template/images/employee/female.png');
+	$avatar = base_url('template/images/anggota/female.png');
 }
 if($detail['photo']){
-	$avatar = base_url('template/images/employee/'.$detail['photo']);
+	$avatar = base_url('template/images/anggota/'.$detail['photo']);
+}
+}
+else
+{
+	$detail = detail_employee($this->session->userdata('employeeid'));
+	if($detail['gender']=='Laki-laki'){
+		$avatar = base_url('template/images/employee/male.png');
+	} else {
+		$avatar = base_url('template/images/employee/female.png');
+	}
+	if($detail['photo']){
+		$avatar = base_url('template/images/employee/'.$detail['photo']);
+	}
 }
 ?>
 
@@ -31,11 +47,14 @@ if($detail['photo']){
         </a>
 
         <ul class="dropdown-menu dropdown-navbar" id="user_menu">
+		<?php if ($this->session->userdata('roleid') != 4)
+			{ ?>
             <li>
                 <a href="<?=site_url('employees/detail/id/'.$detail['id'])?>">
                 <i class="fa fa-user"></i>
                 Profile </a>
             </li>
+			<?php } ?>
             <li>
                 <a href="<?=site_url('users/ganti_password')?>">
                     <i class="fa fa-question"></i>

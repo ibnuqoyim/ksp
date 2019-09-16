@@ -113,7 +113,7 @@ if( ! function_exists('member_all_dropdown2'))
 		{
 			foreach ($q->result() as $rows)
 			{
-				$return[$rows->no_member] = $rows->no_member.' - '.$rows->name;
+				$return[$rows->id] = $rows->no_member.' - '.$rows->name;
 			}
 		}
 		

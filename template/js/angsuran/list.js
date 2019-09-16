@@ -97,3 +97,36 @@ function loda_data(page){
 		}
 	});
 }
+function loda_data_member(page){
+	var sort_by = $("#hid_sort_by").val();
+	var sort_order = $("#hid_sort_order").val();
+	var keywords = $("#txt_keywords").val();
+	var memberid = document.getElementById('memberidx').value;
+	
+	alert(memberid);
+
+	$.ajax({
+		type : "POST",
+		url : base_url + "index.php/"+controller+"/load_data_member",
+		data : {
+			page : page,
+			sort_by : sort_by,
+			sort_order : sort_order,
+			keywords : keywords,
+			memberid : memberid
+		},
+		cache : false,
+		dataType : "html",
+		success : function(data) {
+			$("#data_entries").html("");
+			$("#data_entries").html(data);
+		},
+		beforeSend : function() {
+			$("#data_entries").html("<div id=\"loading\" align=\"center\"><img src=\""+base_url+"template/img/ajax-loader.gif\"/></div>");
+		},
+		error : function(xhr, ajaxOptions, thrownError) {
+			alert(xhr.statusText);
+			alert(thrownError);
+		}
+	});
+}

@@ -38,6 +38,30 @@ class Simpanan extends CI_Model
 			}
 		}
 	}
+	public function list_data_member($offset,$sort_by, $sort_order,$keyword='',$memberid)
+	{
+		$where = '( ';
+		$where .= 'd.memberid = '.$memberid;
+		$where .= ')';
+		$this->db->where($where);
+		
+		$this->db->select('d.*,m.no_member,m.name',false);
+		$this->db->from('deposit d');
+		$this->db->join('member m','m.id=d.memberid');
+		$this->db->order_by($sort_by,$sort_order);
+		$this->db->limit($this->config->item('page_num'),$offset);
+		$result = $this->db->get()->result_array();
+		if(count($result)>0){
+			return $result;
+		} else {
+			$offset = $offset-$this->config->item('page_num');
+			if($offset >= 0){
+				return $this->list_data_member($offset,$sort_by, $sort_order,$keyword,$memberid);
+			} else {
+				return array();
+			}
+		}
+	}
 
 	public function jumlah_data($keyword='')
 	{

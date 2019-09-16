@@ -51,6 +51,7 @@ if(count($result)>0){
             <td>
             	<div align="right">
                     <?php
+					if($this->session->userdata('roleid') != 4){
 					if($result_val['transaction']==$result_val['last_trans']){##transaksi terakhir
 					?>
                         <a class="btn btn-primary btn-sm" href="<?php echo site_url($this->func.'s/edit/id/'.$result_val['id'])?>">
@@ -61,7 +62,7 @@ if(count($result)>0){
                         <i class="fa fa-trash-o"></i> Hapus
                         </a>
                     <?php
-					}
+					}}
 					?>
 
                 </div>

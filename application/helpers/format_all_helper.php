@@ -10,7 +10,28 @@ if( ! function_exists('detail_employee'))
 		return $q->row_array();
 	}
 }
-
+if( ! function_exists('detail_member'))
+{
+	function detail_member($member_id)
+	{
+		$CI = &get_instance();
+		$CI->load->database();
+		$CI->db->where('id',$member_id);
+		$q = $CI->db->get('member');
+		return $q->row_array();
+	}
+}
+if( ! function_exists('simpanan_member'))
+{
+	function simpanan_member($member_id)
+	{
+		$CI = &get_instance();
+		$CI->load->database();
+		$CI->db->where('memberid',$member_id);
+		$q = $CI->db->get('deposit');
+		return $q->row_array();
+	}
+}
 if (! function_exists('format_bulan_tahun'))
 {
 	function format_bulan_tahun($tanggal)

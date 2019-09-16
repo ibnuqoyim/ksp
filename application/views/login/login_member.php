@@ -24,8 +24,8 @@
                 <!--img class="nav-user-photo" src="<?php //echo $logo?>" width="200px" /-->
             </div>
             <br/>
-		<form action="<?=site_url('logins/login_process')?>" class="form" id="login-form" method="post">
-            <h4>Login to <?=config_item('web_title')?></h4>
+		<form action="<?=site_url('logins/login_member_process')?>" class="form" id="login-form" method="post">
+            <h4>Login Member to <?=config_item('web_title')?></h4>
             <hr/>
             <div class="form-group">
             <?php
@@ -53,7 +53,7 @@
 					<button type="submit" class="btn btn-danger form-control">Masuk</button>
 				</div>
 			</div>
-			<div align="center"><a  href="<?=site_url('logins/loginMember')?>"> Login Member Here. </a> </div>
+			<div align="center"><a  href="<?=site_url('logins/index')?>"> Login Employee Here. </a> </div>
         </form>
 	</div> <!-- end login -->
 

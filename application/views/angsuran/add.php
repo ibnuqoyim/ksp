@@ -52,7 +52,7 @@
                         <div class="form-group">
                             <div class="col-md-3"></div>
                             <div class="col-md-6">
-                                <button class="btn btn-success btn-outlined" type="submit"><i class="fa fa-save"></i> Simpan</button>
+                                <button class="btn btn-success btn-outlined" id="Button" type="submit"><i class="fa fa-save"></i> Simpan</button>
                             </div>
                         
                         </div>
@@ -70,7 +70,7 @@
 <div class="row">
     <div class="col-lg-1">
         <div class="panel">
-            <a href="<?=site_url($this->func.'s')?>" class="btn btn-success"><i class="fa fa-arrow-left"></i> Kembali</a>
+            <a href="<?=site_url($this->func.'s')?>"  class="btn btn-success"><i class="fa fa-arrow-left"></i> Kembali</a>
         </div>
     </div>
 </div>

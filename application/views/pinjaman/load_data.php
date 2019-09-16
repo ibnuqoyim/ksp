@@ -60,6 +60,8 @@ if(count($result)>0){
             <td align="right"><?=format_uang($result_val['perbulan'])?></td>
             <td>
             	<div align="right">
+				<?php if ($this->session->userdata('roleid') != 4)
+				{ ?>
                 	<a class="btn btn-primary btn-sm" href="<?=site_url($this->func.'s/edit/id/'.$result_val['id'])?>">
                     <i class="fa fa-edit"></i>
                     </a>
@@ -71,7 +73,12 @@ if(count($result)>0){
                     <a class="btn btn-danger  btn-sm delete" field="<?=$result_val['id']?>" data-toggle="modal" data-target="#modal-confirm" title="Hapus">
                     <i class="fa fa-trash-o"></i>
                     </a>
-
+				<?php }else{ ?>
+					<a class="btn btn-info  btn-sm " href="<?=site_url('angsurans/member/id/'.$result_val['id'])?>" title="Lihat Angsuran">
+                    <i class="fa fa-eye"></i>
+                    </a>
+				
+				<?php }?>
                 </div>
             </td>
         </tr>

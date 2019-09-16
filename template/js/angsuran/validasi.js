@@ -34,13 +34,20 @@ function get_detail_information(){
 	
 				$('#transaction').val('');
 				$('#transaction').val(data.angsuran_ke);
-
+				
 				$('#total_transaction').val('');
 				$('#total_transaction').val(data.lama_angsuran);
-
+				var a = parseInt(data.angsuran_ke);
+				var b = parseInt(data.lama_angsuran);
+				if (a > b)
+				{ alert("Pinjaman ini sudah lunas, Silahkan pilih pinjaman yang lain"); 
+					document.getElementById("Button").disabled = true;
+				}
+				else{
 				$('#amount').val(data.perbulan);
 				$('#amount').formatCurrency({ symbol:"", });
-	
+				document.getElementById("Button").disabled = false;
+				}
 	
 			},
 			error : function(xhr, ajaxOptions, thrownError) {
@@ -48,6 +55,8 @@ function get_detail_information(){
 				alert(thrownError);
 			}
 		});
+		
+
 	}
 
 }

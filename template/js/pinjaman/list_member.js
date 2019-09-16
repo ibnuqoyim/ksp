@@ -1,26 +1,23 @@
-// JavaScript Document
 jQuery(document).ready(function(){
 
 	$(document).on('click',".delete",function() {
-		var userid = $(this).attr("field");
-		$("#userid").val(userid);
+		var id = $(this).attr("field");
+		$("#id").val(id);
 	});
 
 	$(document).on('click',".btn-hapus",function() {
-		var userid = $("#userid").val();
+		var id = $("#id").val();
 		$.ajax({
 			type : "POST",
 			url : base_url + "index.php/"+controller+"/delete_data",
 			data : {
-				userid : userid
+				id : id
 			},
 			cache : false,
 			dataType : "html",
 			success : function(data) {
-				$("#userid").val('');
+				$("#id").val('');
 				location.reload();
-				//$("#row_"+userid).remove('');
-				//loda_data(0);
 			},
 			error : function(xhr, ajaxOptions, thrownError) {
 				alert(xhr.statusText);
@@ -28,6 +25,13 @@ jQuery(document).ready(function(){
 			}
 		});
 	});
+});
+
+
+
+
+// JavaScript Document
+jQuery(document).ready(function(){
 
 	$(document).on('click',".sorting",function() {
 		var sort_by = $(this).attr("field");
@@ -68,35 +72,10 @@ function loda_data(page){
 	var sort_by = $("#hid_sort_by").val();
 	var sort_order = $("#hid_sort_order").val();
 	var keywords = $("#txt_keywords").val();
-
-	$.ajax({
-		type : "POST",
-		url : base_url + "index.php/"+controller+"/load_data",
-		data : {
-			page : page,
-			sort_by : sort_by,
-			sort_order : sort_order,
-			keywords : keywords
-		},
-		cache : false,
-		dataType : "html",
-		success : function(data) {
-			$("#data_entries").html("");
-			$("#data_entries").html(data);
-		},
-		beforeSend : function() {
-			$("#data_entries").html("<div id=\"loading\" align=\"center\"><img src=\""+base_url+"template/img/ajax-loader.gif\"/></div>");
-		},
-		error : function(xhr, ajaxOptions, thrownError) {
-			alert(xhr.statusText);
-			alert(thrownError);
-		}
-	});
-}
-function loda_data_member(page){
-	var sort_by = $("#hid_sort_by").val();
-	var sort_order = $("#hid_sort_order").val();
-	var keywords = $("#txt_keywords").val();
+	//var memberid = $("#memberidx").val();
+	var memberid = document.getElementById('memberidx').value;
+	
+	//alert(memberid);
 
 	$.ajax({
 		type : "POST",
@@ -105,7 +84,8 @@ function loda_data_member(page){
 			page : page,
 			sort_by : sort_by,
 			sort_order : sort_order,
-			keywords : keywords
+			keywords : keywords,
+			memberid : memberid
 		},
 		cache : false,
 		dataType : "html",

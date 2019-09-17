@@ -142,7 +142,7 @@
                         <a href="<?=site_url('users')?>">User</a>
                     </li>
 					<li <?=$classSettingUser?>>
-                        <a href="<?=site_url('users/member')?>">User Member</a>
+                        <a href="<?=site_url('user_members')?>">User Member</a>
                     </li>
                     <li <?=$classSettingCompany?>>
                         <a href="<?=site_url('perusahaans')?>">Kelas</a>

@@ -1,32 +1,32 @@
 <?php
 
-class Users extends CI_Controller
+class User_members extends CI_Controller
 {
 
 	function __construct()
 	{
 		parent::__construct();
-		$this->load->model('user');
-		//$this->load->model('user_member');
+		
+		$this->load->model('user_member');
 		$this->load->model('login');
 		$this->load->library('encrypt');
 	}
 
 	function index() {
 
-		$this->template->add_js('template/js/user/list.js');
-		$this->template->add_title('USER');
+		$this->template->add_js('template/js/user_member/list.js');
+		$this->template->add_title('USER MEMBER');
 		$breadcrumb = array(
 			'berandas'	=> 'Beranda',
-			'users' 	=> 'User',
+			'users' 	=> 'User Member',
 		);
 		$this->template->add_breadcrumb($breadcrumb);
 
-		if(!$this->session->userdata('user')) {
+		if(!$this->session->userdata('user_member')) {
 			$arr_sess = array(
-					'user' => array(
+					'user_member' => array(
 							'page' 			=> "",
-							'sortby'		=> "u.id",
+							'sortby'		=> "um.id",
 							'sortorder' 	=> "DESC",
 							'keyword' 		=> ""
 					),
@@ -34,7 +34,7 @@ class Users extends CI_Controller
 			$this->session->set_userdata($arr_sess);
 		}
 		
-		$sample = $this->session->userdata('user');
+		$sample = $this->session->userdata('user_member');
 
 		$data['page'] = $sample['page'] == "" ? "0" : $sample['page'];
 		$data['sortby'] = $sample['sortby'] == "" ? "u.id" : $sample['sortby'];
@@ -53,11 +53,12 @@ class Users extends CI_Controller
 				','embed');
 
 
-		$this->template->write_view('content','user/list',$data);
+		$this->template->write_view('content','user_member/list',$data);
 		$this->template->render();
 	}
 	
-	function load_data() {
+	
+    function load_data() {
         
 		if($this->input->post('page') !=NULL) {
 			$data['page'] = $this->input->post('page');
@@ -70,7 +71,7 @@ class Users extends CI_Controller
 		$data['keywords']	= isset($_POST['keywords']) ? $_POST['keywords'] : "";
 
 		$arr_sess = array(
-				'user' => array(
+				'user_member' => array(
 						'page' 			=> $data['page'],
 						'sortby'		=> $data['sort_by'],
 						'sortorder' 	=> $data['sort_order'],
@@ -79,8 +80,8 @@ class Users extends CI_Controller
 		);
 		$this->session->set_userdata($arr_sess);
 
-		$data['result'] 	= $this->user->list_data($data['page'],$data['sort_by'],$data['sort_order'],$data['keywords']);
-		$jumlah 		 	= $this->user->jumlah_data($data['keywords']);
+		$data['result'] 	= $this->user_member->list_data($data['page'],$data['sort_by'],$data['sort_order'],$data['keywords']);
+		$jumlah 		 	= $this->user_member->jumlah_data($data['keywords']);
 
 		$config['base_url']			= base_url() . 'index.php/users/load_data/';
 		$config['post_var'] 		= $this->input->post('page');
@@ -94,19 +95,18 @@ class Users extends CI_Controller
 		$this->ajax_pagination->initialize($config);
 		$data['pagination'] = $this->ajax_pagination->create_links();
 		$data['fields'] = array(
-				'e.name'			=> 'Nama',
-				'u.username'	 	=> 'Username',
+				'm.name'			=> 'Nama',
+				'um.username'	 	=> 'Username',
 				'r.description'	 	=> 'Role',
 		);
 
-		$url = 'users/index';
+		$url = 'user_members/index';
 
-		$html = $this->load->view('user/load_data', $data);
+		$html = $this->load->view('user_member/load_data', $data);
 		echo $html;
     }
 	
 	
-
 	function add() {            
 
 		$this->template->add_css('template/addon/select2/select2-custom.css');
@@ -129,33 +129,29 @@ class Users extends CI_Controller
 
 
 
-		$this->template->add_title('TAMBAH USER');
+		$this->template->add_title('TAMBAH USER MEMBER');
 		$breadcrumb = array(
 			'berandas'	=> 'Beranda',
-			'users' 	=> 'User',
-			'users/add' => 'Tambah User',
+			'users' 	=> 'User Member',
+			'users/add' => 'Tambah User Member',
 		);
 		$this->template->add_breadcrumb($breadcrumb);
 		
-		$data['role'] = role_dropdown();
-		$data['employee'] = employee_dropdown();
-		
-		$this->template->write_view('content','user/add',$data);
+		$data['role'] = role_dropdown_member();
+		$data['member'] = member_all_dropdown2();
+		$this->template->write_view('content','user_member/add',$data);
 		$this->template->render();
 	}
 	
 	function add_process(){
 		$entry['roleid']	= $this->input->post('roleid');
-		$entry['employeeid']= $this->input->post('employeeid');
-		
-		
+		$entry['member_id']= $this->input->post('member_id');
 		$entry['username']	= $this->input->post('username');
 		$entry['password']	= $this->encrypt->encode(trim($this->input->post('password')),$this->encrypt->hash(config_item('keyLogin')));
 
 		$this->db->trans_start(); /*untuk rollback jika data gagal*/
 		
-		$this->user->insert_data($entry);
-		
+		$this->user_member->insert_data($entry);
 		$this->db->trans_complete();
 		$pesan = '<div class="alert alert-success">';
 		$pesan .= '<button class="close" data-dismiss="alert">×</button>';
@@ -164,20 +160,13 @@ class Users extends CI_Controller
 		$pesan .= '</div>';
 
 		$this->session->set_flashdata('pesan',$pesan);
-		redirect('users');
+		redirect('user_members');
 	}
 	function get_dropdown_user(){
 		$idrole = $this->input->post('idrole');
 		
-		if ($idrole == 4) 
-		{
 			echo '<?php $employee = member_all_dropdown(); ?>';
-			
-		}
-		else
-		{
-			echo '<?php $employee = employee_dropdown(); ?>';
-		}
+		
 	}
 	function edit() {            
 
@@ -200,26 +189,26 @@ class Users extends CI_Controller
 });
 				','embed');
 
-		$this->template->add_title('EDIT USER');
+		$this->template->add_title('EDIT USER MEMBER');
 		$breadcrumb = array(
 			'berandas'	=> 'Beranda',
-			'users' 	=> 'User',
-			'users/edit/id/'.$this->uri->segment(4) => 'Edit User',
+			'users' 	=> 'User Member',
+			'users/edit/id/'.$this->uri->segment(4) => 'Edit User Member',
 		);
 		$this->template->add_breadcrumb($breadcrumb);
 		
-		$data['role'] = role_dropdown();
-		$data['employee'] = employee_dropdown($this->uri->segment(4));
-		$data['detail'] = $this->user->detail_data($this->uri->segment(4));
+		$data['role'] = role_dropdown_member();
+		$data['member'] = member_all_dropdown2($this->uri->segment(4));
+		$data['detail'] = $this->user_member->detail_data($this->uri->segment(4));
 
-		$this->template->write_view('content','user/edit',$data);
+		$this->template->write_view('content','user_member/edit',$data);
 		$this->template->render();
 	}
 
 	function edit_process(){
 		$userid = $this->uri->segment(4);
 		$entry['roleid']	= $this->input->post('roleid');
-		$entry['employeeid']= $this->input->post('employeeid');
+		$entry['member_id']= $this->input->post('member_id');
 		if($this->input->post('password')){
 			$entry['password']	= $this->encrypt->encode(trim($this->input->post('password')),$this->encrypt->hash(config_item('keyLogin')));
 		}
@@ -239,16 +228,16 @@ class Users extends CI_Controller
 
 	function check_username(){
 		$username = $this->input->post('username');
-		$check = $this->user->check_username($username);
+		$check = $this->user_member->check_username($username);
 		if(count($check)>0){
 			echo 'false';
 		} else {
 			echo 'true';
 		}
 	}
-	function check_employee(){
-		$employeeid = $this->input->post('employeeid');
-		if($employeeid!=''){
+	function check_member(){
+		$member_id = $this->input->post('member_id');
+		if($member_id!=''){
 			echo 'true';
 		} else {
 			echo 'false';
@@ -258,7 +247,7 @@ class Users extends CI_Controller
 	function delete_data(){
 		$userid = $this->input->post('userid');
 		$this->db->trans_start(); /*untuk rollback jika data gagal*/
-		$this->user->delete_data($userid);
+		$this->user_member->delete_data($userid);
 		$this->db->trans_complete();
 		$pesan = '<div class="alert alert-success">';
 		$pesan .= '<button class="close" data-dismiss="alert">×</button>';
@@ -281,7 +270,7 @@ class Users extends CI_Controller
 		);
 		$this->template->add_breadcrumb($breadcrumb);
 
-		$this->template->write_view('content','user/ganti_password');
+		$this->template->write_view('content','user_member/ganti_password');
 		$this->template->render();
 	}
 	
@@ -289,8 +278,7 @@ class Users extends CI_Controller
 		$userid = $this->session->userdata('userid');
 		$entry['password']	= $this->encrypt->encode(trim($this->input->post('password_baru')),$this->encrypt->hash(config_item('keyLogin')));
 		$this->db->trans_start(); /*untuk rollback jika data gagal*/
-		
-		$this->user->update_data($entry,$userid); 
+		$this->user_member->update_data($entry,$userid);
 		
 		$this->db->trans_complete();
 		$pesan = '<div class="alert alert-success">';
@@ -299,14 +287,14 @@ class Users extends CI_Controller
 		$pesan .= ' Password telah berhasil diganti!';
 		$pesan .= '</div>';
 		$this->session->set_flashdata('pesan',$pesan);
-		redirect('users/ganti_password');
+		redirect('user_members/ganti_password');
 	}
 
 	function check_password_lama(){
 		$username		= $this->input->post('username');
 		$password_lama	= $this->input->post('password_lama');
+		$login = $this->login->getDataMember($username,$password_lama);
 		
-		$login = $this->login->getData($username,$password_lama);
 		if($login==true){
 			echo 'true';
 		} else {

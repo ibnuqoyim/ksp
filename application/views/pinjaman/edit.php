@@ -16,21 +16,22 @@
                         </div>
                         <div class="form-group">
                             <label class="col-md-3 control-label">Tanggal <span class="require">*</span> :</label>
-                            <div class="col-md-3">
-                                <input id="date" name="date" type="text" placeholder="dd/mm/yyyy" class="date-picker form-control input-small" value="<?=format_datepicker($result['date'])?>"/>
-                            </div>
+                            <div class="col-md-5">
+                                
+								<input id="date" name="date" type="date" placeholder="dd/mm/yyyy" class="form-control input-small" onchange="setbunga()" value="<?=format_datepicker($result['date'])?>" />
+							</div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-3 control-label">Anggota <span class="require">*</span> :</label>
                             <div class="col-md-5">
                                 <?php
-                                echo form_dropdown('memberid',$member,$result['memberid'],'id="memberid" class="select2-size  form-control" ');?>
+                                echo form_dropdown('memberid',$member,$result['memberid'],'id="memberid" class="select2-size  form-control" onchange="max_pinjaman()" ');?>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-3 control-label">Jumlah Pinjaman <span class="require">*</span> :</label>
                             <div class="col-md-3">
-                                <input id="amount" name="amount" class="form-control angka" type="text" placeholder="0.00" maxlength="20" onkeypress="return blockNonNumbers(this, event, true, false);" value="<?=format_uang($result['amount'])?>"> 
+                                <input id="amount" name="amount" class="form-control angka" type="text" placeholder="0.00" maxlength="20" onchange="cek_maks()" value="<?=format_uang($result['amount'])?>"> 
                             </div>
                             <div class="col-md-6">
                             <label class="control-label text-info" id="maksimal"></label>
@@ -38,26 +39,23 @@
                         </div>
                         <div class="form-group">
                             <label class="col-md-3 control-label">Lama Angsuran <span class="require">*</span> :</label>
-                            <div class="col-md-2">
-                                <input id="lama_angsuran" name="lama_angsuran" class="form-control" type="text" placeholder="0" maxlength="4" onkeypress="return blockNonNumbers(this, event, true, false);" value="<?=$result['lama_angsuran']?>">
-                            </div>
-                            <div class="col-md-4">
-                            <?php
-							$checked_bulan = 'checked="checked"';
-							$checked_tahun = '';
-							if($result['flag']=='Tahun'){
-								$checked_bulan = '';
-								$checked_tahun = 'checked="checked"';
-							}
-							?>
-                            	<input type="radio" name="flag" class="flag" value="Bulan" <?=$checked_bulan?> /> Bulan&nbsp;&nbsp;
-                            	<input type="radio" name="flag" class="flag" value="Tahun" <?=$checked_tahun?> /> Tahun
+                            <div class="col-md-3">
+                                <select id="lama_angsuran" name="lama_angsuran"  class="form-control" onchange="hitung_perbulan()">
+									<option value="3">Jangka Pendek (3 Bulan)</option>
+									<option value="24">Jangka Panjang (24 Bulan)</option>
+								</select>
+								<input id="lamas_angsuran" name="lamas_angsuran" class="form-control" type="hidden" placeholder="0" maxlength="4" onchange="return blockNonNumbers(this, event, true, false);">
+								
+							</div>
+							<div>
+                            	<input type="hidden" name="flag" class="flag" value="Bulan" checked="checked" /> 
+                            	
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-3 control-label">Bunga (%) <span class="require">*</span> :</label>
                             <div class="col-md-2">
-                                <input id="bunga" name="bunga" class="form-control angka" type="text" placeholder="0.00" maxlength="20" onkeypress="return blockNonNumbers(this, event, true, false);" value="<?=$result['bunga']?>">
+                                <input id="bunga" name="bunga" readonly="readonly" class="form-control angka" type="text" placeholder="0.00" maxlength="20" onkeypress="return blockNonNumbers(this, event, true, false);" value="<?=$result['bunga']?>">
                             </div>
                         </div>
                         <div class="form-group">

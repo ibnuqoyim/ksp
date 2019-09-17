@@ -30,13 +30,13 @@
                         <div class="form-group">
                             <label class="col-md-3 control-label">Simpanan Pokok <span class="require">*</span> :</label>
                             <div class="col-md-5">
-                                <input id="pokok" name="pokok" class="form-control angka" type="text" placeholder="0.00" maxlength="20" onkeypress="return blockNonNumbers(this, event, true, false);" value="<?=format_uang($result['pokok'])?>">
+                                <input id="pokok" name="pokok" class="form-control angka" type="text" placeholder="0.00" maxlength="20" readonly="readonly" onkeypress="return blockNonNumbers(this, event, true, false);" value="<?=format_uang($result['pokok'])?>">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-3 control-label">Simpanan Wajib <span class="require">*</span> :</label>
                             <div class="col-md-5">
-                                <input id="wajib" name="wajib" class="form-control angka" type="text" placeholder="0.00" maxlength="20" onkeypress="return blockNonNumbers(this, event, true, false);" value="<?=format_uang($result['wajib'])?>">
+                                <input id="wajib" name="wajib" class="form-control angka" type="text" placeholder="0.00" maxlength="20" readonly="readonly"  onkeypress="return blockNonNumbers(this, event, true, false);" value="<?=format_uang($result['wajib'])?>">
                             </div>
                         </div>
                         <div class="form-group">

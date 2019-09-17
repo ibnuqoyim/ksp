@@ -49,6 +49,30 @@ if( ! function_exists('role_dropdown'))
 		return $return;
 	}
 }
+if( ! function_exists('role_dropdown_member'))
+{
+	function role_dropdown_member()
+	{
+		$CI = &get_instance();
+		$CI->load->database();
+		//$where = 'WHERE role.id = 4';
+		$CI->db->where('role.id = 4');
+		$CI->db->order_by('id','ASC');
+		$q = $CI->db->get('role');
+		
+		$return = array();
+		
+		if($q->num_rows() > 0)
+		{
+			foreach ($q->result() as $rows)
+			{
+				$return[$rows->id] = $rows->description;
+			}
+		}
+		
+		return $return;
+	}
+}
 
 if( ! function_exists('employee_all_dropdown'))
 {

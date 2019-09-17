@@ -93,3 +93,37 @@ ERROR - 2019-09-17 06:34:56 --> Severity: Notice  --> Undefined index: birthplac
 ERROR - 2019-09-17 06:34:56 --> Severity: Notice  --> Undefined index: birthdate C:\xampp2\htdocs\koperasi\application\views\employee\detail.php 48
 ERROR - 2019-09-17 06:34:56 --> Severity: Notice  --> Undefined index: address C:\xampp2\htdocs\koperasi\application\views\employee\detail.php 51
 ERROR - 2019-09-17 06:34:56 --> Severity: Notice  --> Undefined index: id C:\xampp2\htdocs\koperasi\application\views\employee\detail.php 55
+ERROR - 2019-09-17 20:46:49 --> Query error: Unknown column 'um.id' in 'order clause'
+ERROR - 2019-09-17 20:46:58 --> Query error: Unknown column 'um.id' in 'order clause'
+ERROR - 2019-09-17 20:47:05 --> Query error: Unknown column 'um.id' in 'order clause'
+ERROR - 2019-09-17 20:47:46 --> Query error: Unknown column 'um.id' in 'order clause'
+ERROR - 2019-09-17 20:48:15 --> Severity: Notice  --> Undefined index: roleid C:\xampp2\htdocs\koperasi\application\views\user\edit.php 14
+ERROR - 2019-09-17 20:48:15 --> Severity: Notice  --> Undefined index: employeeid C:\xampp2\htdocs\koperasi\application\views\user\edit.php 20
+ERROR - 2019-09-17 20:48:15 --> Severity: Notice  --> Undefined index: username C:\xampp2\htdocs\koperasi\application\views\user\edit.php 26
+ERROR - 2019-09-17 20:53:19 --> Query error: Unknown column 'um.id' in 'order clause'
+ERROR - 2019-09-17 21:00:52 --> 404 Page Not Found --> users/member
+ERROR - 2019-09-17 21:10:07 --> 404 Page Not Found --> users/member
+ERROR - 2019-09-17 21:10:18 --> 404 Page Not Found --> user_members/index
+ERROR - 2019-09-17 21:33:43 --> 404 Page Not Found --> user_members/index
+ERROR - 2019-09-17 21:33:44 --> 404 Page Not Found --> user_members/index
+ERROR - 2019-09-17 21:33:45 --> 404 Page Not Found --> user_members/index
+ERROR - 2019-09-17 21:34:23 --> 404 Page Not Found --> user_members/index
+ERROR - 2019-09-17 21:35:04 --> Severity: Notice  --> Undefined property: User_members::$user C:\xampp2\htdocs\koperasi\application\controllers\user_members.php 202
+ERROR - 2019-09-17 21:35:40 --> Severity: Notice  --> Undefined variable: employee C:\xampp2\htdocs\koperasi\application\views\user_member\edit.php 20
+ERROR - 2019-09-17 21:35:40 --> Severity: Notice  --> Undefined index: employeeid C:\xampp2\htdocs\koperasi\application\views\user_member\edit.php 20
+ERROR - 2019-09-17 21:35:40 --> Severity: Warning  --> Invalid argument supplied for foreach() C:\xampp2\htdocs\koperasi\system\helpers\form_helper.php 332
+ERROR - 2019-09-17 21:38:04 --> Severity: Notice  --> Undefined variable: employee C:\xampp2\htdocs\koperasi\application\views\user_member\edit.php 20
+ERROR - 2019-09-17 21:38:04 --> Severity: Notice  --> Undefined index: employeeid C:\xampp2\htdocs\koperasi\application\views\user_member\edit.php 20
+ERROR - 2019-09-17 21:38:04 --> Severity: Warning  --> Invalid argument supplied for foreach() C:\xampp2\htdocs\koperasi\system\helpers\form_helper.php 332
+ERROR - 2019-09-17 21:42:39 --> Query error: Unknown column 'roleid' in 'field list'
+ERROR - 2019-09-17 21:44:45 --> Query error: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'role.id FROM role WHERE role.id = 4)
+ORDER BY id ASC' at line 3
+ERROR - 2019-09-17 21:45:21 --> Query error: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'role.id = 4
+ORDER BY id ASC' at line 3
+ERROR - 2019-09-17 21:46:17 --> Severity: Notice  --> Undefined variable: employee C:\xampp2\htdocs\koperasi\application\views\user_member\edit.php 20
+ERROR - 2019-09-17 21:46:17 --> Severity: Notice  --> Undefined index: employeeid C:\xampp2\htdocs\koperasi\application\views\user_member\edit.php 20
+ERROR - 2019-09-17 21:46:17 --> Severity: Warning  --> Invalid argument supplied for foreach() C:\xampp2\htdocs\koperasi\system\helpers\form_helper.php 332
+ERROR - 2019-09-17 21:46:42 --> Severity: Notice  --> Undefined variable: employee C:\xampp2\htdocs\koperasi\application\views\user_member\edit.php 20
+ERROR - 2019-09-17 21:46:42 --> Severity: Notice  --> Undefined index: employeeid C:\xampp2\htdocs\koperasi\application\views\user_member\edit.php 20
+ERROR - 2019-09-17 21:46:42 --> Severity: Warning  --> Invalid argument supplied for foreach() C:\xampp2\htdocs\koperasi\system\helpers\form_helper.php 332
+ERROR - 2019-09-17 21:49:52 --> Query error: Cannot add or update a child row: a foreign key constraint fails (`db_koperasi`.`user`, CONSTRAINT `user_ibfk_2` FOREIGN KEY (`employeeid`) REFERENCES `employee` (`id`) ON DELETE CASCADE ON UPDATE CASCADE)

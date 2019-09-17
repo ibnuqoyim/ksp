@@ -1,9 +1,7 @@
-<?php if ($this->session->userdata('roleid') != 4)
-{ ?>
 <div class="row">
     <div class="col-lg-1">
         <div class="panel">
-            <a href="<?=site_url($this->func.'s/add')?>" class="btn btn-success"><i class="fa fa-plus"></i>&nbsp;&nbsp; Tambah <?=$this->title?></a>
+            <a href="<?=site_url('user_members/add')?>" class="btn btn-success"><i class="fa fa-plus"></i> Tambah User</a>
         </div>
     </div>
 
@@ -18,7 +16,7 @@
     </div>
     <br/>
 </div>
-<?php } ?>
+
 <div class="row">
     <div class="col-lg-12">
         <?=$this->session->flashdata('pesan')?>
@@ -30,7 +28,7 @@
             <input type="hidden" id="hid_paging" />
             <input type="hidden" id="hid_sort_by" />
             <input type="hidden" id="hid_sort_order" />
-        	<div class="panel-heading"><h4 class="panel-title">Data <?=$this->title?></h4></div>
+        	<div class="panel-heading"><h4 class="panel-title">List User</h4></div>
             <div class="panel-body">
                 <div id="data_entries" class="table-responsive"></div>
             </div>
